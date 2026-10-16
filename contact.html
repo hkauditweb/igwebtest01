@@ -1,0 +1,559 @@
+!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金途天下旅行社 - 暢遊天下，金途相伴</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2E7D32', // 綠色主題
+                        secondary: '#FF9800', // 橙色輔色
+                        dark: '#1B5E20', // 深綠色
+                        light: '#A5D6A7', // 淺綠色
+                        accent: '#FF5722', // 深橙色
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.03);
+            }
+            .nav-shadow {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- 頂部聯繫信息 -->
+    <div class="bg-primary text-white py-2 px-4 md:px-8">
+        <div class="container mx-auto flex flex-wrap justify-between items-center text-sm">
+            <div class="flex items-center space-x-4 mb-2 md:mb-0">
+                <div class="flex items-center">特別提示！這是測試版網頁，當中展示的任何文字、數據、圖片、影片等均為設計效果，瀏覽者不應視為本公司業務展示資料。</div>
+            </div>
+            <div class="flex items-center">
+                <a href="http://www.i-goldentours.hk" class="flex items-center hover:text-secondary transition-colors">
+                    <i class="fa fa-globe mr-2"></i> www.i-goldentours.hk
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="bg-white nav-shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- 品牌標誌 -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                        <i class="fa fa-paper-plane-o mr-2"></i>
+                        <span>金途天下旅行社</span>
+                    </a>
+                </div>
+
+                <!-- 桌面端菜單 -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <!-- 首頁 -->
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">首頁</a>                    
+                    <!-- 中國短線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-1.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國短線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">本月熱賣</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">皇牌3天</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">養生溫泉</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">豪食自助</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">經典美食</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">靈山美景</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">五星酒店</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">奢華品牌</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">開心樂園</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節賞花</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">跨省巴士</a>
+                                <a href="pd-1.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">高鐵短線</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 中國長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-2.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-2.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國飛機</a>
+                                <a href="pd-2.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國高鐵/火車</a>
+                                <a href="pd-2.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">深度遊</a>
+                                <a href="pd-2.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節熱門</a>
+                                <a href="pd-2.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">節日加班</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 東南亞 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-3.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            東南亞
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-3.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">台灣</a>
+                                <a href="pd-3.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">越南</a>
+                                <a href="pd-3.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">星馬</a>
+                                <a href="pd-3.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">泰國</a>
+                                <a href="pd-3.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">韓國</a>
+                                <a href="pd-3.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">日本</a>
+                                <a href="pd-3.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">汶萊</a>
+                                <a href="pd-3.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">老撾</a>
+                                <a href="pd-3.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 環球長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-5.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            環球長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-5.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">土耳其</a>
+                                <a href="pd-5.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">俄羅斯</a>
+                                <a href="pd-5.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">埃及</a>
+                                <a href="pd-5.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">歐洲</a>
+                                <a href="pd-5.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">美加</a>
+                                <a href="pd-5.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">澳洲</a>
+                                <a href="pd-5.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">杜拜</a>
+                                <a href="pd-5.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 其他菜單 -->
+                    <a href="pd-6.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                    <a href="pd-8.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">獨立包團</a>
+                    <a href="GFO.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">成團概覽</a>
+                    <a href="info.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">常見資訊</a>
+                    <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">聯絡我們</a>
+                </div>
+
+                <!-- 手機端菜單按鈕 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機端菜單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">首頁</a>                
+                <!-- 中國短線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國短線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">本月熱賣</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">皇牌3天</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">養生溫泉</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">豪食自助</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">經典美食</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">靈山美景</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">五星酒店</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">奢華品牌</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">開心樂園</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節賞花</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">跨省巴士</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">高鐵短線</a>
+                    </div>
+                </div>
+                
+                <!-- 其他手機下拉菜單結構與主頁相同 -->
+                <!-- 中國長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國飛機</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國高鐵/火車</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">深度遊</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節熱門</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">節日加班</a>
+                    </div>
+                </div>
+                
+                <!-- 東南亞 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        東南亞
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">台灣</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">越南</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">星馬</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">泰國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">韓國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">日本</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">汶萊</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">老撾</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <!-- 環球長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        環球長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">土耳其</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">俄羅斯</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">埃及</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">歐洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">美加</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">澳洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">杜拜</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <a href="pd-6.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                <a href="pd-8.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">獨立包團</a>
+                <a href="GFO.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">成團概覽</a>
+                <a href="info.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">常見資訊</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 頁面標題 -->
+    <div class="bg-primary py-12 md:py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">聯絡我們</h1>
+            <p class="text-white/90 max-w-2xl mx-auto">歡迎隨時聯繫我們，我們的團隊將竭誠為您提供幫助和服務</p>
+        </div>
+    </div>
+
+    <!-- 聯絡信息主體 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- 包團專線 -->
+            <div class="bg-secondary text-white p-6 md:p-8 rounded-lg shadow-lg mb-12 text-center hover-scale">
+                <h2 class="text-2xl md:text-3xl font-bold mb-2">包團專線</h2>
+                <p class="text-xl md:text-2xl font-bold">2690 1666</p>
+                <p class="mt-2 opacity-90">專業團隊為您量身定制獨特旅程</p>
+            </div>
+            
+            <!-- 門店信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 旺角店 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                    <div class="bg-primary text-white p-4">
+                        <h3 class="text-xl font-bold">旺角店</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3 text-lg"></i>
+                            <p>旺角 荷里活商業中心7樓718室</p>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-phone text-primary mt-1 mr-3 text-lg"></i>
+                            <p>報名熱線 2426 6667</p>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-whatsapp text-primary mt-1 mr-3 text-lg"></i>
+                            <p>WhatsApp 6069 4616</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa fa-clock-o text-primary mt-1 mr-3 text-lg"></i>
+                            <p>營業時間：星期一至日 上午10時至晚上7時</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 屯門店 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                    <div class="bg-primary text-white p-4">
+                        <h3 class="text-xl font-bold">屯門店</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3 text-lg"></i>
+                            <p>屯門 華都花園商場地下39號舖</p>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-phone text-primary mt-1 mr-3 text-lg"></i>
+                            <p>報名熱線 2777 7000</p>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-whatsapp text-primary mt-1 mr-3 text-lg"></i>
+                            <p>WhatsApp 5951 4384</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa fa-clock-o text-primary mt-1 mr-3 text-lg"></i>
+                            <p>營業時間：星期一至日 上午10時至晚上7時</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 荃灣店 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                    <div class="bg-primary text-white p-4">
+                        <h3 class="text-xl font-bold">荃灣店</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3 text-lg"></i>
+                            <p>荃灣 南豐中心6樓625室</p>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-phone text-primary mt-1 mr-3 text-lg"></i>
+                            <p>報名熱線 2426 6666</p>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-whatsapp text-primary mt-1 mr-3 text-lg"></i>
+                            <p>WhatsApp 6364 3071</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa fa-clock-o text-primary mt-1 mr-3 text-lg"></i>
+                            <p>營業時間：星期一至日 上午10時至晚上7時</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 大埔店 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                    <div class="bg-primary text-white p-4">
+                        <h3 class="text-xl font-bold">大埔店</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3 text-lg"></i>
+                            <p>大埔 寶湖花園商場2樓 215A</p>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-phone text-primary mt-1 mr-3 text-lg"></i>
+                            <p>報名熱線 2466 6888</p>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fa fa-whatsapp text-primary mt-1 mr-3 text-lg"></i>
+                            <p>WhatsApp 5307 3561</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa fa-clock-o text-primary mt-1 mr-3 text-lg"></i>
+                            <p>營業時間：星期一至日 上午10時至晚上7時</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 地圖和聯繫表單 -->
+            <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 地圖占位 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden h-[400px]">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <div class="text-center p-8">
+                            <i class="fa fa-map-o text-5xl text-primary/50 mb-4"></i>
+                            <p class="text-gray-500">地圖將顯示在此處</p>
+                            <p class="text-gray-400 text-sm mt-2">實際部署時替換為地圖組件</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 聯繫表單 -->
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-primary mb-6">發送查詢</h3>
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="您的姓名">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">電話</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="您的聯絡電話">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">電郵</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="您的電郵地址">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">查詢內容</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="請輸入您的查詢內容..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-medium py-3 px-6 rounded-md transition-colors">
+                            提交查詢
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯繫資訊 -->
+    <section class="py-12 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-paper-plane-o mr-2"></i> 金途天下旅行社
+                    </h3>
+                    <p class="mb-4">我們提供全球各地的旅遊服務，為您打造難忘的旅行體驗。無論是短線遊玩還是長途探索，我們都能滿足您的需求。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-facebook-square text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-weixin text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-weibo text-2xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">聯絡我們</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>旺角 2426 6667</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>屯門 2777 7000</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>荃灣 2426 6666</span>
+                        </li>
+                         <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>大埔 2466 6888</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">快速鏈接</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="index.html" class="text-white hover:text-secondary transition-colors">首頁</a>
+                        <a href="GFO.html" class="text-white hover:text-secondary transition-colors">成團概覽</a>
+                        <a href="pd-1.html" class="text-white hover:text-secondary transition-colors">中國短線</a>
+                        <a href="pd-2.html" class="text-white hover:text-secondary transition-colors">中國長線</a>
+                        <a href="pd-3.html" class="text-white hover:text-secondary transition-colors">東南亞</a>
+                        <a href="pd-5.html" class="text-white hover:text-secondary transition-colors">環球長線</a>
+                        <a href="pd-6.html" class="text-white hover:text-secondary transition-colors">郵輪假期</a>
+                        <a href="pd-8.html" class="text-white hover:text-secondary transition-colors">獨立包團</a>
+                        <a href="info.html" class="text-white hover:text-secondary transition-colors">常見資訊</a>
+                        <a href="contact.html" class="text-white hover:text-secondary transition-colors">聯絡我們</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>版權所有 &copy; 金途天下旅行社 2023. 保留所有權利。</p>
+        </div>
+    </footer>
+
+    <!-- 返回頂部按鈕 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary hover:bg-dark text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 invisible">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // 手機菜單切換
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 手機子菜單切換
+        document.querySelectorAll('.mobile-submenu-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('hidden');
+                
+                // 切換箭頭方向
+                const arrow = this.querySelector('i');
+                arrow.classList.toggle('fa-chevron-down');
+                arrow.classList.toggle('fa-chevron-up');
+            });
+        });
+        
+        // 返回頂部按鈕
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

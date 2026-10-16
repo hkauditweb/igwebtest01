@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金途天下旅行社 - 旅遊報名系統</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2E7D32', // 綠色主題
+                        secondary: '#FF9800', // 橙色輔色
+                        dark: '#1B5E20', // 深綠色
+                        light: '#A5D6A7', // 淺綠色
+                        accent: '#FF5722', // 深橙色
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.03);
+            }
+            .nav-shadow {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+            .form-input-focus {
+                @apply focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- 頂部聯繫信息 -->
+    <div class="bg-primary text-white py-2 px-4 md:px-8">
+        <div class="container mx-auto flex flex-wrap justify-between items-center text-sm">
+            <div class="flex items-center space-x-4 mb-2 md:mb-0">
+                <div class="flex items-center">特別提示！這是測試版網頁，當中展示的任何文字、數據、圖片、影片等均為設計效果，瀏覽者不應視為本公司業務展示資料。</div>
+            </div>
+            <div class="flex items-center">
+                <a href="http://www.i-goldentours.hk" class="flex items-center hover:text-secondary transition-colors">
+                    <i class="fa fa-globe mr-2"></i> www.i-goldentours.hk
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="bg-white nav-shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- 品牌標誌 -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                        <i class="fa fa-paper-plane-o mr-2"></i>
+                        <span>金途天下旅行社</span>
+                    </a>
+                </div>
+
+                <!-- 桌面端菜單 -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <!-- 首頁 -->
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">首頁</a>                    
+                    <!-- 中國短線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-1.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國短線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">本月熱賣</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">皇牌3天</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">養生溫泉</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">豪食自助</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">經典美食</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">靈山美景</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">五星酒店</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">奢華品牌</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">開心樂園</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節賞花</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">跨省巴士</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">高鐵短線</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 中國長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-2.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國飛機</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國高鐵/火車</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">深度遊</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節熱門</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">節日加班</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 東南亞 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-3.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            東南亞
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">台灣</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">越南</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">星馬</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">泰國</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">韓國</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">日本</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">汶萊</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">老撾</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 環球長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-5.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            環球長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">土耳其</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">俄羅斯</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">埃及</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">歐洲</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">美加</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">澳洲</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">杜拜</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 其他菜單 -->
+                    <a href="pd-6.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                    <a href="pd-8.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">獨立包團</a>
+                    <a href="GFO.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">成團概覽</a>
+                    <a href="info.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">常見資訊</a>
+                    <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">聯絡我們</a>
+                </div>
+
+                <!-- 手機端菜單按鈕 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機端菜單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">首頁</a>                
+                <!-- 中國短線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國短線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">本月熱賣</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">皇牌3天</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">養生溫泉</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">豪食自助</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">經典美食</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">靈山美景</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">五星酒店</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">奢華品牌</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">開心樂園</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節賞花</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">跨省巴士</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">高鐵短線</a>
+                    </div>
+                </div>
+                
+                <!-- 其他手機下拉菜單結構與主頁相同 -->
+                <!-- 中國長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國飛機</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國高鐵/火車</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">深度遊</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節熱門</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">節日加班</a>
+                    </div>
+                </div>
+                
+                <!-- 東南亞 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        東南亞
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">台灣</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">越南</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">星馬</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">泰國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">韓國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">日本</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">汶萊</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">老撾</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <!-- 環球長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        環球長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">土耳其</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">俄羅斯</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">埃及</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">歐洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">美加</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">澳洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">杜拜</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <a href="pd-6.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                <a href="pd-8.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">獨立包團</a>
+                <a href="GFO.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">成團概覽</a>
+                <a href="info.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">常見資訊</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 報名系統標題區 -->
+    <section class="relative bg-primary/10 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">旅遊線上報名系統</h1>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">填寫以下表單完成報名，我們的客服人員將於24小時內與您聯繫確認相關細節</p>
+        </div>
+    </section>
+
+    <!-- 報名表單區域 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-gray-50 rounded-xl shadow-lg p-6 md:p-8">
+                <!-- 表單提示 -->
+                <div class="mb-8 bg-primary/5 border-l-4 border-primary p-4 rounded">
+                    <div class="flex items-start">
+                        <i class="fa fa-info-circle text-primary mt-1 mr-3 text-xl"></i>
+                        <div>
+                            <h3 class="font-bold text-primary mb-1">報名須知</h3>
+                            <ul class="text-sm text-gray-700 space-y-1 list-disc list-inside">
+                                <li>請確保填寫的個人資料真實有效，以便我們及時與您聯繫</li>
+                                <li>報名完成後，我們將通過電話或電子郵件確認報名信息</li>
+                                <li>如遇任何問題，請致電我們的客服熱線：旺角 2426 6667 / 屯門 2777 7000 / 荃灣 2426 6666 / 大埔 2466 6888</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 報名表單 -->
+                <form id="booking-form" class="space-y-6">
+                    <!-- 行程選擇 -->
+                    <div class="bg-white p-4 rounded-lg border">
+                        <h3 class="text-lg font-bold text-primary mb-4 flex items-center">
+                            <i class="fa fa-calendar-check-o mr-2"></i> 行程選擇
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="trip-type" class="block text-sm font-medium text-gray-700 mb-1">旅遊類型 <span class="text-red-500">*</span></label>
+                                <select id="trip-type" name="trip-type" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                                    <option value="">請選擇旅遊類型</option>
+                                    <option value="short">中國短線</option>
+                                    <option value="long">中國長線</option>
+                                    <option value="southeast">東南亞</option>
+                                    <option value="global">環球長線</option>
+                                    <option value="cruise">郵輪假期</option>
+                                    <option value="custom">獨立包團</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="trip-name" class="block text-sm font-medium text-gray-700 mb-1">行程名稱 <span class="text-red-500">*</span></label>
+                                <input type="text" id="trip-name" name="trip-name" placeholder="請輸入欲報名的行程名稱" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                            </div>
+                            <div>
+                                <label for="departure-date" class="block text-sm font-medium text-gray-700 mb-1">出團日期 <span class="text-red-500">*</span></label>
+                                <input type="date" id="departure-date" name="departure-date" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                            </div>
+                            <div>
+                                <label for="travelers" class="block text-sm font-medium text-gray-700 mb-1">參加人數 <span class="text-red-500">*</span></label>
+                                <div class="flex items-center">
+                                    <button type="button" id="decrease-travelers" class="px-3 py-2 border border-gray-300 rounded-l-md bg-gray-100 hover:bg-gray-200 transition-colors">-</button>
+                                    <input type="number" id="travelers" name="travelers" min="1" value="1" class="w-full px-3 py-2 border-y border-gray-300 text-center form-input-focus">
+                                    <button type="button" id="increase-travelers" class="px-3 py-2 border border-gray-300 rounded-r-md bg-gray-100 hover:bg-gray-200 transition-colors">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 聯繫人信息 -->
+                    <div class="bg-white p-4 rounded-lg border">
+                        <h3 class="text-lg font-bold text-primary mb-4 flex items-center">
+                            <i class="fa fa-user-circle-o mr-2"></i> 聯繫人信息
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">姓名 <span class="text-red-500">*</span></label>
+                                <input type="text" id="contact-name" name="contact-name" placeholder="請輸入您的姓名" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                            </div>
+                            <div>
+                                <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-1">聯繫電話 <span class="text-red-500">*</span></label>
+                                <input type="tel" id="contact-phone" name="contact-phone" placeholder="請輸入您的聯繫電話" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                            </div>
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-1">電子郵件</label>
+                                <input type="email" id="contact-email" name="contact-email" placeholder="請輸入您的電子郵件" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                            </div>
+                            <div>
+                                <label for="contact-gender" class="block text-sm font-medium text-gray-700 mb-1">性別</label>
+                                <div class="flex space-x-4 pt-2">
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" name="contact-gender" value="male" class="form-radio text-primary focus:ring-primary">
+                                        <span class="ml-2">男</span>
+                                    </label>
+                                    <label class="inline-flex items-center">
+                                        <input type="radio" name="contact-gender" value="female" class="form-radio text-primary focus:ring-primary">
+                                        <span class="ml-2">女</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 同行人信息 -->
+                    <div class="bg-white p-4 rounded-lg border">
+                        <h3 class="text-lg font-bold text-primary mb-4 flex items-center">
+                            <i class="fa fa-users mr-2"></i> 同行人信息
+                        </h3>
+                        <div id="travelers-info-container">
+                            <!-- 同行人1 -->
+                            <div class="traveler-info mb-4 pb-4 border-b last:border-0 last:mb-0 last:pb-0">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h4 class="font-medium text-gray-800">同行人 #1</h4>
+                                    <button type="button" class="text-sm text-gray-500 hover:text-red-500 remove-traveler hidden">
+                                        <i class="fa fa-trash-o mr-1"></i> 刪除
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                                        <input type="text" name="traveler-name[]" placeholder="請輸入同行人姓名" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">身份證/護照號碼</label>
+                                        <input type="text" name="traveler-id[]" placeholder="請輸入身份證/護照號碼" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">出生日期</label>
+                                        <input type="date" name="traveler-dob[]" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">飲食要求</label>
+                                        <select name="traveler-diet[]" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                                            <option value="">無特殊要求</option>
+                                            <option value="vegetarian">素食</option>
+                                            <option value="vegan">純素食</option>
+                                            <option value="halal">清真</option>
+                                            <option value="other">其他</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="add-traveler" class="mt-4 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md transition-colors flex items-center">
+                            <i class="fa fa-plus-circle mr-2"></i> 添加同行人
+                        </button>
+                    </div>
+
+                    <!-- 特殊要求 -->
+                    <div class="bg-white p-4 rounded-lg border">
+                        <h3 class="text-lg font-bold text-primary mb-4 flex items-center">
+                            <i class="fa fa-comment-o mr-2"></i> 特殊要求與備註
+                        </h3>
+                        <div>
+                            <label for="special-requests" class="block text-sm font-medium text-gray-700 mb-1">特殊要求</label>
+                            <textarea id="special-requests" name="special-requests" rows="4" placeholder="請輸入您的特殊要求（如：飲食禁忌、住宿要求、行動不便等）" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus"></textarea>
+                        </div>
+                        <div class="mt-4">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" name="newsletter" class="form-checkbox text-primary focus:ring-primary">
+                                <span class="ml-2 text-sm text-gray-700">我願意接收金途天下旅行社的最新優惠及推廣資訊</span>
+                            </label>
+                        </div>
+                        <div class="mt-2">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" name="terms" required class="form-checkbox text-primary focus:ring-primary">
+                                <span class="ml-2 text-sm text-gray-700">我已閱讀並同意<a href="#" class="text-primary hover:underline">《金途天下旅行社服務條款》</a>及<a href="#" class="text-primary hover:underline">《個人資料收集聲明》</a> <span class="text-red-500">*</span></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 提交按鈕 -->
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                        <button type="reset" class="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-md transition-colors font-medium w-full sm:w-auto">
+                            <i class="fa fa-refresh mr-2"></i> 重置表單
+                        </button>
+                        <button type="submit" class="px-6 py-3 bg-primary hover:bg-dark text-white rounded-md transition-colors font-medium w-full sm:w-auto">
+                            <i class="fa fa-paper-plane mr-2"></i> 提交報名
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 報名流程 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-10 text-primary">報名流程</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <!-- 步驟1 -->
+                <div class="bg-white rounded-lg p-6 text-center hover-scale shadow-md">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">1</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">填寫報名表</h3>
+                    <p class="text-gray-600 text-sm">如實填寫個人信息和行程選擇，確保聯繫方式準確</p>
+                </div>
+                
+                <!-- 步驟2 -->
+                <div class="bg-white rounded-lg p-6 text-center hover-scale shadow-md">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">2</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">提交確認</h3>
+                    <p class="text-gray-600 text-sm">提交報名表後，系統將自動發送確認短信/郵件</p>
+                </div>
+                
+                <!-- 步驟3 -->
+                <div class="bg-white rounded-lg p-6 text-center hover-scale shadow-md">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">3</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">客服聯繫</h3>
+                    <p class="text-gray-600 text-sm">我們的客服將於24小時內與您聯繫確認報名細節</p>
+                </div>
+                
+                <!-- 步驟4 -->
+                <div class="bg-white rounded-lg p-6 text-center hover-scale shadow-md">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">4</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">完成報名</h3>
+                    <p class="text-gray-600 text-sm">確認無誤後完成報名手續，等待出團通知</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常見問題 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-10 text-primary">常見問題</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
+                        <span class="font-medium">提交報名後多久會收到確認？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white">
+                        <p class="text-gray-700">提交報名表後，系統會立即發送確認短信或電子郵件。我們的客服人員會在24小時內與您聯繫，確認報名細節和付款方式。如遇公眾假期，回覆時間可能會稍延。</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
+                        <span class="font-medium">可以更改已提交的報名信息嗎？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white">
+                        <p class="text-gray-700">是的，您可以聯繫我們的客服熱線更改報名信息。如在出團前7天以上更改，不收取任何手續費；7天內更改可能會產生相應的更改費用，具體請咨詢客服人員。</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
+                        <span class="font-medium">取消報名的退款政策是什麼？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white">
+                        <p class="text-gray-700">取消報名的退款政策根據取消時間而定：
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700">
+                            <li>出團前30天以上取消：退款90%</li>
+                            <li>出團前15-29天取消：退款70%</li>
+                            <li>出團前7-14天取消：退款50%</li>
+                            <li>出團前7天內取消：退款30%</li>
+                            <li>出團當天取消：不予退款</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
+                        <span class="font-medium">需要提前準備哪些證件？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white">
+                        <p class="text-gray-700">根據不同的旅遊目的地，所需證件不同：
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700">
+                            <li>中國內地：港澳居民來往內地通行證（回鄉證）</li>
+                            <li>台灣：台灣通行證及入台證</li>
+                            <li>東南亞國家：護照（有效期不少於6個月）及相應簽證</li>
+                            <li>其他國家：護照（有效期不少於6個月）及相應簽證</li>
+                        </ul>
+                        請確保管件有效期，並提前準備好複印件。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-4 bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center">
+                        <span class="font-medium">報名後會提供哪些旅遊文件？</span>
+                        <i class="fa fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white">
+                        <p class="text-gray-700">報名確認後，我們會提供以下文件：
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700">
+                            <li>行程確認單（包含詳細行程安排）</li>
+                            <li>集合時間地點通知</li>
+                            <li>導遊聯繫方式</li>
+                            <li>旅遊保險單據</li>
+                            <li>注意事項及建議攜帶物品清單</li>
+                        </ul>
+                        這些文件會在出團前7天發送至您的電子郵箱。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯繫資訊 -->
+    <section class="py-12 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-paper-plane-o mr-2"></i> 金途天下旅行社
+                    </h3>
+                    <p class="mb-4">我們提供全球各地的旅遊服務，為您打造難忘的旅行體驗。無論是短線遊玩還是長途探索，我們都能滿足您的需求。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-facebook-square text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-weixin text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-weibo text-2xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">聯絡我們</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>旺角 2426 6667</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>屯門 2777 7000</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>荃灣 2426 6666</span>
+                        </li>
+                         <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>大埔 2466 6888</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">快速鏈接</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="#" class="text-white hover:text-secondary transition-colors">首頁</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">成團概覽</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">中國短線</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">中國長線</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">東南亞</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">環球長線</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">郵輪假期</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">獨立包團</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">常見資訊</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">聯絡我們</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>版權所有 &copy; 金途天下旅行社 2023. 保留所有權利。</p>
+        </div>
+    </footer>
+
+    <!-- 返回頂部按鈕 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary hover:bg-dark text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 invisible">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // 手機菜單切換
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 手機子菜單切換
+        document.querySelectorAll('.mobile-submenu-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('hidden');
+                
+                // 切換箭頭方向
+                const arrow = this.querySelector('i');
+                arrow.classList.toggle('fa-chevron-down');
+                arrow.classList.toggle('fa-chevron-up');
+            });
+        });
+        
+        // 報名人數增減
+        const travelersInput = document.getElementById('travelers');
+        const decreaseBtn = document.getElementById('decrease-travelers');
+        const increaseBtn = document.getElementById('increase-travelers');
+        
+        decreaseBtn.addEventListener('click', () => {
+            let value = parseInt(travelersInput.value);
+            if (value > 1) {
+                travelersInput.value = value - 1;
+                updateTravelersInfo();
+            }
+        });
+        
+        increaseBtn.addEventListener('click', () => {
+            let value = parseInt(travelersInput.value);
+            travelersInput.value = value + 1;
+            updateTravelersInfo();
+        });
+        
+        // 同行人信息動態添加/刪除
+        const travelersContainer = document.getElementById('travelers-info-container');
+        const addTravelerBtn = document.getElementById('add-traveler');
+        
+        // 添加同行人
+        addTravelerBtn.addEventListener('click', () => {
+            const travelerCount = document.querySelectorAll('.traveler-info').length;
+            const newTraveler = createTravelerInfo(travelerCount + 1);
+            travelersContainer.appendChild(newTraveler);
+            
+            // 顯示刪除按鈕
+            document.querySelectorAll('.remove-traveler').forEach(btn => {
+                btn.classList.remove('hidden');
+            });
+        });
+        
+        // 刪除同行人
+        travelersContainer.addEventListener('click', (e) => {
+            if (e.target.closest('.remove-traveler')) {
+                const travelerInfo = e.target.closest('.traveler-info');
+                travelerInfo.remove();
+                
+                // 更新編號
+                updateTravelersNumbering();
+                
+                // 如果只剩一個同行人，隱藏刪除按鈕
+                if (document.querySelectorAll('.traveler-info').length === 1) {
+                    document.querySelector('.remove-traveler').classList.add('hidden');
+                }
+            }
+        });
+        
+        // 更新同行人數量
+        function updateTravelersInfo() {
+            const targetCount = parseInt(travelersInput.value);
+            const currentCount = document.querySelectorAll('.traveler-info').length;
+            
+            if (targetCount > currentCount) {
+                // 添加同行人
+                for (let i = currentCount; i < targetCount; i++) {
+                    const newTraveler = createTravelerInfo(i + 1);
+                    travelersContainer.appendChild(newTraveler);
+                }
+            } else if (targetCount < currentCount) {
+                // 刪除多餘的同行人
+                const travelers = document.querySelectorAll('.traveler-info');
+                for (let i = currentCount - 1; i >= targetCount; i--) {
+                    travelers[i].remove();
+                }
+            }
+            
+            // 更新編號
+            updateTravelersNumbering();
+            
+            // 顯示/隱藏刪除按鈕
+            if (targetCount > 1) {
+                document.querySelectorAll('.remove-traveler').forEach(btn => {
+                    btn.classList.remove('hidden');
+                });
+            } else {
+                document.querySelector('.remove-traveler').classList.add('hidden');
+            }
+        }
+        
+        // 創建同行人信息模板
+        function createTravelerInfo(index) {
+            const div = document.createElement('div');
+            div.className = 'traveler-info mb-4 pb-4 border-b last:border-0 last:mb-0 last:pb-0';
+            div.innerHTML = `
+                <div class="flex justify-between items-center mb-3">
+                    <h4 class="font-medium text-gray-800">同行人 #${index}</h4>
+                    <button type="button" class="text-sm text-gray-500 hover:text-red-500 remove-traveler">
+                        <i class="fa fa-trash-o mr-1"></i> 刪除
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                        <input type="text" name="traveler-name[]" placeholder="請輸入同行人姓名" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">身份證/護照號碼</label>
+                        <input type="text" name="traveler-id[]" placeholder="請輸入身份證/護照號碼" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">出生日期</label>
+                        <input type="date" name="traveler-dob[]" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">飲食要求</label>
+                        <select name="traveler-diet[]" class="w-full px-3 py-2 border border-gray-300 rounded-md form-input-focus">
+                            <option value="">無特殊要求</option>
+                            <option value="vegetarian">素食</option>
+                            <option value="vegan">純素食</option>
+                            <option value="halal">清真</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+            return div;
+        }
+        
+        // 更新同行人編號
+        function updateTravelersNumbering() {
+            const travelers = document.querySelectorAll('.traveler-info');
+            travelers.forEach((traveler, index) => {
+                traveler.querySelector('h4').textContent = `同行人 #${index + 1}`;
+            });
+        }
+        
+        // FAQ 切換
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                
+                // 切換內容顯示
+                content.classList.toggle('hidden');
+                
+                // 旋轉箭頭
+                icon.classList.toggle('rotate-180');
+                
+                // 關閉其他FAQ
+                faqToggles.forEach(otherToggle => {
+                    if (otherToggle !== toggle) {
+                        const otherContent = otherToggle.nextElementSibling;
+                        const otherIcon = otherToggle.querySelector('i');
+                        otherContent.classList.add('hidden');
+                        otherIcon.classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+        
+        // 表單提交處理
+        document.getElementById('booking-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // 簡單表單驗證
+            const requiredFields = [
+                'trip-type',
+                'trip-name',
+                'departure-date',
+                'contact-name',
+                'contact-phone'
+            ];
+            
+            let isValid = true;
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value) {
+                    isValid = false;
+                    field.classList.add('border-red-500');
+                    field.addEventListener('input', () => {
+                        field.classList.remove('border-red-500');
+                    });
+                }
+            });
+            
+            const termsCheckbox = document.querySelector('input[name="terms"]');
+            if (!termsCheckbox.checked) {
+                isValid = false;
+                alert('請閱讀並同意服務條款和個人資料收集聲明');
+            }
+            
+            if (isValid) {
+                // 顯示提交成功提示
+                alert('報名表提交成功！我們的客服人員將於24小時內與您聯繫。');
+                // 重置表單
+                document.getElementById('booking-form').reset();
+                // 重置同行人信息
+                travelersContainer.innerHTML = '';
+                travelersContainer.appendChild(createTravelerInfo(1));
+                document.querySelector('.remove-traveler').classList.add('hidden');
+                travelersInput.value = 1;
+            } else {
+                alert('請填寫所有必填字段');
+            }
+        });
+        
+        // 返回頂部按鈕
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

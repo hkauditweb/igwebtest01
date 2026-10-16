@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金途天下旅行社 - 暢遊天下，金途相伴</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2E7D32', // 綠色主題
+                        secondary: '#FF9800', // 橙色輔色
+                        dark: '#1B5E20', // 深綠色
+                        light: '#A5D6A7', // 淺綠色
+                        accent: '#FF5722', // 深橙色
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script>
+        // 風景區照片輪播功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('scenery-carousel');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            let currentIndex = 0;
+            const slideCount = 5; // 5張風景照片
+            const intervalTime = 5000; // 5秒切換一次
+            
+            // 初始化第一個指示器為激活狀態
+            indicators[0].classList.add('opacity-100');
+            indicators[0].classList.remove('opacity-50');
+            
+            // 切換到指定索引的幻燈片
+            function goToSlide(index) {
+                carousel.style.transform = `translateX(-${index * 100}%)`;
+                
+                // 更新指示器狀態
+                indicators.forEach((indicator, i) => {
+                    if (i === index) {
+                        indicator.classList.add('opacity-100');
+                        indicator.classList.remove('opacity-50');
+                    } else {
+                        indicator.classList.remove('opacity-100');
+                        indicator.classList.add('opacity-50');
+                    }
+                });
+                
+                currentIndex = index;
+            }
+            
+            // 自動輪播
+            let interval = setInterval(() => {
+                let nextIndex = (currentIndex + 1) % slideCount;
+                goToSlide(nextIndex);
+            }, intervalTime);
+            
+            // 點擊指示器手動切換
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    // 重置計時器
+                    clearInterval(interval);
+                    goToSlide(index);
+                    
+                    // 重新啟動自動輪播
+                    interval = setInterval(() => {
+                        let nextIndex = (currentIndex + 1) % slideCount;
+                        goToSlide(nextIndex);
+                    }, intervalTime);
+                });
+            });
+        });
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.03);
+            }
+            .nav-shadow {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- 頂部聯繫信息 -->
+    <div class="bg-primary text-white py-2 px-4 md:px-8">
+        <div class="container mx-auto flex flex-wrap justify-between items-center text-sm">
+            <div class="flex items-center space-x-4 mb-2 md:mb-0">
+                <div class="flex items-center">特別提示！這是測試版網頁，當中展示的任何文字、數據、圖片、影片等均為設計效果，瀏覽者不應視為本公司業務展示資料。</div>
+            </div>
+            <div class="flex items-center">
+                <a href="http://www.i-goldentours.hk" class="flex items-center hover:text-secondary transition-colors">
+                    <i class="fa fa-globe mr-2"></i> www.i-goldentours.hk
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="bg-white nav-shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- 品牌標誌 -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                        <i class="fa fa-paper-plane-o mr-2"></i>
+                        <span>金途天下旅行社</span>
+                    </a>
+                </div>
+
+                <!-- 桌面端菜單 -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <!-- 首頁 -->
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">首頁</a>                    
+                    <!-- 中國短線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-1.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國短線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">本月熱賣</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">皇牌3天</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">養生溫泉</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">豪食自助</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">經典美食</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">靈山美景</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">五星酒店</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">奢華品牌</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">開心樂園</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節賞花</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">跨省巴士</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">高鐵短線</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 中國長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-2.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國飛機</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國高鐵/火車</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">深度遊</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節熱門</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">節日加班</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 東南亞 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-3.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            東南亞
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">台灣</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">越南</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">星馬</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">泰國</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">韓國</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">日本</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">汶萊</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">老撾</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 環球長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-5.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            環球長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">土耳其</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">俄羅斯</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">埃及</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">歐洲</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">美加</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">澳洲</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">杜拜</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 其他菜單 -->
+                    <a href="pd-6.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                    <a href="pd-8.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">獨立包團</a>
+                    <a href="GFO.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">成團概覽</a>
+                    <a href="info.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">常見資訊</a>
+                    <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">聯絡我們</a>
+                </div>
+
+                <!-- 手機端菜單按鈕 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機端菜單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">首頁</a>                
+                <!-- 中國短線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國短線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">本月熱賣</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">皇牌3天</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">養生溫泉</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">豪食自助</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">經典美食</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">靈山美景</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">五星酒店</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">奢華品牌</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">開心樂園</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節賞花</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">跨省巴士</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">高鐵短線</a>
+                    </div>
+                </div>
+                
+                <!-- 其他手機下拉菜單結構與主頁相同 -->
+                <!-- 中國長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國飛機</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國高鐵/火車</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">深度遊</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節熱門</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">節日加班</a>
+                    </div>
+                </div>
+                
+                <!-- 東南亞 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        東南亞
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">台灣</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">越南</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">星馬</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">泰國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">韓國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">日本</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">汶萊</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">老撾</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <!-- 環球長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        環球長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">土耳其</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">俄羅斯</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">埃及</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">歐洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">美加</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">澳洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">杜拜</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <a href="pd-6.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                <a href="pd-8.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">獨立包團</a>
+                <a href="GFO.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">成團概覽</a>
+                <a href="info.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">常見資訊</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 風景區照片輪播 -->
+    <div class="relative w-full h-[400px] overflow-hidden">
+        <div id="scenery-carousel" class="flex transition-transform duration-500 h-full">
+            <div class="w-full flex-shrink-0 h-full relative">
+                <img src="https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/953059737144393731~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1784971764&x-signature=%2FhPkAuIJ%2FpQHWHslTiAwywMowGc%3D" alt="越南下龙湾" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-white text-5xl font-bold text-shadow">東南亞</div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                </div>
+            </div>
+            <div class="w-full flex-shrink-0 h-full relative">
+                <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/902012899665379388~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1784971764&x-signature=Sz%2FAJc6G8iDuraDjA%2FhqLNCCXPU%3D" alt="越南下龙湾风光" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-white text-5xl font-bold text-shadow">東南亞</div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                </div>
+            </div>
+            <div class="w-full flex-shrink-0 h-full relative">
+                <img src="https://p11-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1982011537484808208~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1784971764&x-signature=JWJRk0q0xnzS%2FBd8IQFJTxRJejI%3D" alt="越南岘港金龙桥" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-white text-5xl font-bold text-shadow">東南亞</div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                </div>
+            </div>
+            <div class="w-full flex-shrink-0 h-full relative">
+                <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-xv4ileqgde/89479b9db27147f2bbb4562295c9a432~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1784971764&x-signature=QR%2BfrOtjvYzvAAq2hAMB4HRhc7c%3D" alt="越南胡志明市" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-white text-5xl font-bold text-shadow">東南亞</div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                </div>
+            </div>
+            <div class="w-full flex-shrink-0 h-full relative">
+                <img src="https://p3-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1060628172210831449~tplv-be4g95zd3a-image.jpeg?lk3s=feb11e32&x-expires=1784971764&x-signature=7ux2RBwu6LfLei6AHNWingG1RZU%3D" alt="越南富国岛" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-white text-5xl font-bold text-shadow">東南亞</div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                </div>
+            </div>
+        </div>
+        <!-- 轮播指示器 -->
+        <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-indicator" data-index="0"></button>
+            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-indicator" data-index="1"></button>
+            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-indicator" data-index="2"></button>
+            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-indicator" data-index="3"></button>
+            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-indicator" data-index="4"></button>
+        </div>
+    </div>
+
+        <!-- 查詢和篩選區 -->
+    <section class="py-6 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-lg p-5 shadow-md">
+                <h2 class="text-lg font-bold text-primary mb-4">查詢條件</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">地區/航線</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">全部地區</option>
+                            <option value="china-short">中國短線</option>
+                            <option value="china-long">中國長線</option>
+                            <option value="southeast-asia">東南亞</option>
+                            <option value="global-long">環球長線</option>
+                            <option value="cruise">郵輪假期</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">出發日期</label>
+                        <div class="flex space-x-2">
+                            <select class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="">月份</option>
+                                <option value="11">11月</option>
+                                <option value="12">12月</option>
+                                <option value="1">1月</option>
+                                <option value="2">2月</option>
+                            </select>
+                            <select class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="">年份</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">成團狀態</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">全部狀態</option>
+                            <option value="confirmed">已成團</option>
+                            <option value="soon">快成團</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">團隊天數</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">不限天數</option>
+                            <option value="1">1天</option>
+                            <option value="2-3">2-3天</option>
+                            <option value="4-7">4-7天</option>
+                            <option value="8-14">8-14天</option>
+                            <option value="15+">15天或以上</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">團號/關鍵字</label>
+                        <input type="text" placeholder="輸入團號或關鍵字" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">價格範圍</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">全部價格</option>
+                            <option value="0-299">$0-$299</option>
+                            <option value="300-499">$300-$499</option>
+                            <option value="500-999">$500-$999</option>
+                            <option value="1000-1999">$1000-$1999</option>
+                            <option value="2000-4999">$2000-$4999</option>
+                            <option value="5000+">$5000以上</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap justify-end gap-3">
+                    <button class="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors">
+                        <i class="fa fa-refresh mr-1"></i> 重設
+                    </button>
+                    <button class="px-6 py-2 bg-primary text-white rounded-md hover:bg-dark transition-colors">
+                        <i class="fa fa-search mr-1"></i> 查詢
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 中國短線內容 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- 子目錄標籤 -->
+            <div class="flex overflow-x-auto pb-4 mb-8 space-x-2 text-xs md:text-sm mb-10">
+                <a href="pd-it01.html" class="tab-link active whitespace-nowrap bg-primary text-white px-4 py-2 rounded-full" data-tab="monthly-hot">本月熱賣</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="top-3days">皇牌3天</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="hot-spring">養生溫泉</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="buffet">豪食自助</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="classic-food">經典美食</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="mountain-scenery">靈山美景</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="5star-hotel">五星酒店</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="luxury-brand">奢華品牌</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="amusement-park">開心樂園</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="seasonal-flowers">季節賞花</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="interprovincial-bus">跨省巴士</a>
+                <a href="pd-it01.html" class="tab-link whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors" data-tab="high-speed-rail">高鐵短線</a>
+            </div>
+            
+            <!-- 本月熱賣 -->
+            <div class="tab-content active" id="monthly-hot">
+                <h2 class="text-2xl font-bold text-primary mb-6">本月熱賣</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <div class="relative">
+                            <img src="https://picsum.photos/id/29/600/400" alt="黃山3日遊" class="w-full h-48 object-cover">
+                            <div class="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-2 py-1 rounded">熱賣</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">黃山3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞黃山奇松怪石，體驗雲海壯觀景色，感受大自然的鬼斧神工。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,299</span>
+                                <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 項目2 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <div class="relative">
+                            <img src="https://picsum.photos/id/28/600/400" alt="北京經典2日遊" class="w-full h-48 object-cover">
+                            <div class="absolute top-3 left-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">折扣</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">北京經典2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">遊覽天安門廣場、故宮博物院和頤和園，感受京城文化底蘊。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,899</span>
+                                <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 項目3 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/42/600/400" alt="麗江古城休閒3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">麗江古城休閒3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">漫步麗江古城，體驗納西族文化，欣賞玉龍雪山美景。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,599</span>
+                                <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 項目4 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/43/600/400" alt="桂林山水2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">桂林山水2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢遊漓江，欣賞兩岸山水美景，體驗「舟行碧波上，人在畫中游」。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,499</span>
+                                <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 項目5 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/76/600/400" alt="張家界奇觀3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">張家界奇觀3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">探索張家界國家森林公園，欣賞獨特的石英砂岩峰林地貌。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,699</span>
+                                <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 項目6 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <div class="relative">
+                            <img src="https://picsum.photos/id/87/600/400" alt="杭州西湖2日遊" class="w-full h-48 object-cover">
+                            <div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">人氣</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">杭州西湖2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">遊覽西湖十景，品嘗杭州特色美食，體驗江南水鄉風情。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 1,899</span>
+                                <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 項目7 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/96/600/400" alt="蘇州園林2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">蘇州園林2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">參觀拙政園、留園等世界文化遺產，感受中國園林藝術精髓。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,199</span>
+                                <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 項目8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/94/600/400" alt="溫泉療養2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">溫泉療養2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">享受天然溫泉浸泡，放鬆身心，體驗養生之旅。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,599</span>
+                                <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 皇牌3天 -->
+            <div class="tab-content" id="top-3days">
+                <h2 class="text-2xl font-bold text-primary mb-6">皇牌3天</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/101/600/400" alt="上海都市3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">上海都市3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">遊覽外灘、東方明珠、上海迪士尼，感受國際大都市魅力。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,499</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/102/600/400" alt="成都熊貓3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">成都熊貓3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">參觀大熊貓繁育研究基地，品嘗正宗川菜，體驗休閒之都魅力。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,799</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/103/600/400" alt="西安古都3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">西安古都3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">參觀兵馬俑、大雁塔、古城牆，領略十三朝古都風韻。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/104/600/400" alt="青島海濱3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">青島海濱3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">漫步八大關，遊覽嶗山風景區，品嘗青島啤酒與海鮮。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/105/600/400" alt="重慶山城3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">重慶山城3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">遊覽洪崖洞、解放碑，體驗獨特山城地貌與火鍋美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,399</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/106/600/400" alt="三亞海灘3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">三亞海灘3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢遊亞龍灣、天涯海角，享受陽光沙灘與新鮮海鮮。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/107/600/400" alt="南京文化3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">南京文化3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">參觀中山陵、明孝陵、夫子廟，感受六朝古都歷史文化。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,199</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/108/600/400" alt="武漢都市3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">武漢都市3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">遊覽黃鶴樓、東湖，品嘗熱乾麵等特色美食，感受江城魅力。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,099</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 養生溫泉 -->
+            <div class="tab-content" id="hot-spring">
+                <h2 class="text-2xl font-bold text-primary mb-6">養生溫泉</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/109/600/400" alt="南京湯山溫泉2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">南京湯山溫泉2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">體驗中國四大名泉之一的湯山溫泉，享受舒適SPA服務。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/110/600/400" alt="安微黃山溫泉2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">安微黃山溫泉2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">在黃山腳下享受溫泉浸泡，欣賞山景，品嘗當地特色美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/111/600/400" alt="雲南騰衝溫泉3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">雲南騰衝溫泉3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">體驗世界地熱奇觀，享受天然溫泉，探索火山遺跡。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,799</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/112/600/400" alt="四川海螺溝溫泉2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">四川海螺溝溫泉2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">在雪山腳下泡溫泉，欣賞冰川奇景，體驗獨特風光。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/113/600/400" alt="廣東清遠溫泉2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">廣東清遠溫泉2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">享受溫泉療養，體驗漂流樂趣，品嘗清遠雞等特色美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 1,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/114/600/400" alt="浙江寧波溫泉2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">浙江寧波溫泉2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">體驗寧波東錢湖溫泉，遊覽古鎮風光，品嘗海鮮盛宴。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/115/600/400" alt="北京小湯山溫泉2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">北京小湯山溫泉2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">體驗皇家溫泉療養，遊覽故宮頤和園，感受京城文化。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,799</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/116/600/400" alt="陝西華清池溫泉2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">陝西華清池溫泉2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">體驗皇家溫泉，參觀兵馬俑，感受盛唐文化底蘊。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 豪食自助 -->
+            <div class="tab-content" id="buffet">
+                <h2 class="text-2xl font-bold text-primary mb-6">豪食自助</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/117/600/400" alt="澳門自助餐2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">澳門自助餐2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢享澳門頂級酒店自助餐，遊覽澳門歷史城區，體驗賭城魅力。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,499</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/118/600/400" alt="上海五星自助餐2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">上海五星自助餐2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗上海頂級酒店自助餐，遊覽外灘夜景，感受魔都魅力。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/119/600/400" alt="廣州美食自助2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">廣州美食自助2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢享廣州早茶與自助餐，遊覽羊城名勝，體驗嶺南文化。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 1,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/120/600/400" alt="深圳海鮮自助2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">深圳海鮮自助2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗新鮮海鮮自助餐，遊覽歡樂谷，體驗深圳現代都市風貌。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,199</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/121/600/400" alt="成都火鍋自助2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">成都火鍋自助2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢享正宗四川火鍋，參觀大熊貓基地，體驗巴蜀文化。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/122/600/400" alt="杭州海鮮自助2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">杭州海鮮自助2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗西湖醋魚等名菜與海鮮自助，遊覽西湖美景。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/123/600/400" alt="青島海鮮自助2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">青島海鮮自助2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢享新鮮海鮮盛宴，品嘗青島啤酒，遊覽海濱風光。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/124/600/400" alt="三亞海鮮自助3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">三亞海鮮自助3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">享受海邊風光與新鮮海鮮自助，體驗熱帶海島風情。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,499</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 經典美食 -->
+            <div class="tab-content" id="classic-food">
+                <h2 class="text-2xl font-bold text-primary mb-6">經典美食</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/125/600/400" alt="北京烤鴨美食2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">北京烤鴨美食2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗正宗北京烤鴨，暢遊京城名勝，體驗老北京風情。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,799</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/126/600/400" alt="上海本幫菜美食2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">上海本幫菜美食2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗上海本幫菜經典，遊覽外灘與豫園，感受上海風情。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/127/600/400" alt="四川川菜美食3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">四川川菜美食3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗正宗川菜，參觀大熊貓基地，體驗四川風土人情。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/128/600/400" alt="廣東粵菜美食2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">廣東粵菜美食2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗正宗粵菜與點心，遊覽廣州名勝，體驗嶺南文化。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 1,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/129/600/400" alt="杭州杭幫菜美食2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">杭州杭幫菜美食2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗西湖醋魚、東坡肉等經典杭幫菜，遊覽西湖美景。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,199</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/130/600/400" alt="重慶火鍋美食2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">重慶火鍋美食2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗正宗重慶火鍋，遊覽洪崖洞，體驗山城獨特風貌。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,499</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/131/600/400" alt="西安陝菜美食2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">西安陝菜美食2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗肉夾饃、羊肉泡饃等陝西美食，參觀兵馬俑。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/132/600/400" alt="南京金陵菜美食2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">南京金陵菜美食2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">品嘗金陵名菜，遊覽中山陵、夫子廟，感受六朝古都風韻。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,399</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 靈山美景 -->
+            <div class="tab-content" id="mountain-scenery">
+                <h2 class="text-2xl font-bold text-primary mb-6">靈山美景</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/133/600/400" alt="黃山風光3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">黃山風光3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞黃山奇松、怪石、雲海、溫泉四絕，體驗大自然奇觀。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,399</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/134/600/400" alt="華山險峰2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">華山險峰2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">挑戰華山天險，體驗「自古華山一條路」的雄奇險峻。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/135/600/400" alt="泰山雄風2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">泰山雄風2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">登臨五嶽之首，欣賞日出奇景，感受「會當凌絕頂」的豪情。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/136/600/400" alt="廬山風景3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">廬山風景3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞廬山瀑布、雲海奇景，感受「橫看成嶺側成峰」的意境。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,199</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/137/600/400" alt="張家界奇山3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">張家界奇山3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">探索張家界獨特的石英砂岩峰林地貌，體驗阿凡達的奇幻世界。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/138/600/400" alt="武夷山風光3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">武夷山風光3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘竹筏暢遊九曲溪，欣賞丹霞地貌，品嘗武夷岩茶。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/139/600/400" alt="五臺山佛國2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">五臺山佛國2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">參觀中國四大佛教名山之一，感受佛教文化與山嶽風光。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/140/600/400" alt="普陀山聖地2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">普陀山聖地2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">參觀海天佛國普陀山，感受佛教文化，欣賞海島風光。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,099</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 五星酒店 -->
+            <div class="tab-content" id="5star-hotel">
+                <h2 class="text-2xl font-bold text-primary mb-6">五星酒店</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/141/600/400" alt="上海五星酒店2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">上海五星酒店2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住上海頂級五星酒店，享受奢華服務，遊覽魔都風光。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/142/600/400" alt="北京五星酒店2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">北京五星酒店2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住北京豪華五星酒店，遊覽故宮長城，享受高端服務。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 4,199</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/143/600/400" alt="廣州五星酒店2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">廣州五星酒店2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住廣州頂級五星酒店，品嘗粵式美食，體驗都市風情。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/144/600/400" alt="深圳五星酒店2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">深圳五星酒店2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住深圳灣五星酒店，遊覽歡樂谷，享受高端購物體驗。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,499</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/145/600/400" alt="杭州五星酒店2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">杭州五星酒店2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住西湖邊五星酒店，欣賞湖景，品嘗杭幫菜，享受悠閒假期。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/146/600/400" alt="三亞海灘五星酒店3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">三亞海灘五星酒店3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住三亞海濱五星度假酒店，享受陽光沙灘，體驗熱帶風情。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 4,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/147/600/400" alt="成都五星酒店2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">成都五星酒店2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住成都豪華五星酒店，品嘗正宗川菜，參觀大熊貓基地。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,799</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/148/600/400" alt="青島海濱五星酒店2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">青島海濱五星酒店2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住青島海濱五星酒店，品嘗海鮮啤酒，遊覽八大關風景區。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 奢華品牌 -->
+            <div class="tab-content" id="luxury-brand">
+                <h2 class="text-2xl font-bold text-primary mb-6">奢華品牌</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/149/600/400" alt="上海奢華購物2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">上海奢華購物2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢遊上海灘、南京西路，體驗頂級購物與餐飲，入住五星酒店。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 4,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/150/600/400" alt="北京奢華體驗2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">北京奢華體驗2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住頂級酒店，品嘗米其林餐廳，私人導遊帶您遊覽京城名勝。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 5,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/151/600/400" alt="杭州奢華度假2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">杭州奢華度假2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住西湖邊頂級酒店，私人遊艇遊覽西湖，品嘗頂級杭幫菜。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 4,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/152/600/400" alt="廣州奢華購物2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">廣州奢華購物2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢遊廣州頂級購物中心，品嘗米其林粵菜，入住五星級酒店。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 4,199</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/153/600/400" alt="深圳奢華體驗2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">深圳奢華體驗2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住深圳灣頂級酒店，暢遊高端購物中心，享受私人管家服務。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 4,399</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/154/600/400" alt="三亞奢華海灘3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">三亞奢華海灘3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住私人海灘度假酒店，享受SPA療程，體驗熱帶奢華假期。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 6,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/155/600/400" alt="成都奢華體驗2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">成都奢華體驗2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住頂級酒店，品嘗高端川菜，私人導覽大熊貓基地與市區名勝。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 4,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/156/600/400" alt="澳門奢華體驗2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">澳門奢華體驗2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">入住澳門頂級酒店，品嘗米其林餐廳，體驗奢華購物與娛樂。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 5,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 開心樂園 -->
+            <div class="tab-content" id="amusement-park">
+                <h2 class="text-2xl font-bold text-primary mb-6">開心樂園</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/157/600/400" alt="上海迪士尼2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">上海迪士尼2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢玩上海迪士尼樂園，與卡通人物近距離互動，欣賞煙花表演。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/158/600/400" alt="北京環球影城2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">北京環球影城2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢玩北京環球影城，體驗哈利波特、變形金剛等經典項目。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 4,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/159/600/400" alt="廣州長隆歡樂世界2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">廣州長隆歡樂世界2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">挑戰各種刺激遊樂設施，參觀長隆野生動物世界，度過歡樂時光。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,499</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/160/600/400" alt="深圳歡樂谷2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">深圳歡樂谷2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢玩歡樂谷各種遊樂項目，欣賞精彩表演，體驗刺激與歡樂。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/161/600/400" alt="杭州宋城主題公園2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">杭州宋城主題公園2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">穿越千年宋城，欣賞《宋城千古情》演出，體驗宋代風情。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/162/600/400" alt="成都歡樂谷2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">成都歡樂谷2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢玩各種刺激遊樂設施，欣賞精彩表演，品嘗成都美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,399</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/163/600/400" alt="青島海昌極地海洋世界2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">青島海昌極地海洋世界2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">近距離接觸北極熊、企鵝等極地動物，欣賞精彩海豚表演。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,199</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/164/600/400" alt="重慶歡樂谷2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">重慶歡樂谷2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">挑戰山城獨特地形上的刺激遊樂設施，體驗不一樣的歡樂。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 季節賞花 -->
+            <div class="tab-content" id="seasonal-flowers">
+                <h2 class="text-2xl font-bold text-primary mb-6">季節賞花</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/165/600/400" alt="北京頤和園梅花節2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">北京頤和園梅花節2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞頤和園盛開的梅花，遊覽皇家園林，感受春天的氣息。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,799</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/166/600/400" alt="杭州西湖桃花節2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">杭州西湖桃花節2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞西湖邊盛開的桃花，遊覽西湖十景，感受春天的浪漫。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/167/600/400" alt="武漢櫻花節2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">武漢櫻花節2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞武大櫻花盛開美景，遊覽東湖，品嘗武漢特色美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/168/600/400" alt="成都油菜花節2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">成都油菜花節2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞成都平原金黃色的油菜花田，參觀大熊貓基地，品嘗川菜。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,499</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/169/600/400" alt="雲南麗江櫻花節3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">雲南麗江櫻花節3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞麗江古城與玉龍雪山腳下的櫻花盛景，體驗納西族文化。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/170/600/400" alt="江西廬山杜鵑花節3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">江西廬山杜鵑花節3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞廬山杜鵑花盛開美景，遊覽廬山風景名勝，感受春天的氣息。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/171/600/400" alt="北京香山紅葉節2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">北京香山紅葉節2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞香山公園層林盡染的紅葉美景，遊覽頤和園，感受秋天的韻味。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/172/600/400" alt="南京玄武湖荷花節2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">南京玄武湖荷花節2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞玄武湖盛開的荷花，遊覽中山陵、夫子廟，感受古都風韻。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 跨省巴士 -->
+            <div class="tab-content" id="interprovincial-bus">
+                <h2 class="text-2xl font-bold text-primary mb-6">跨省巴士</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/173/600/400" alt="廣州深圳巴士2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">廣州深圳巴士2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘舒適巴士暢遊廣州深圳，遊覽知名景點，品嘗當地美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 1,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/174/600/400" alt="上海杭州巴士2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">上海杭州巴士2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘舒適巴士暢遊上海杭州，遊覽西湖、外灘等知名景點。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,199</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/175/600/400" alt="北京天津巴士2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">北京天津巴士2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘舒適巴士暢遊北京天津，遊覽故宮、天津古文化街等景點。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,399</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/176/600/400" alt="成都重慶巴士3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">成都重慶巴士3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘舒適巴士暢遊成都重慶，參觀大熊貓基地，品嘗火鍋美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/177/600/400" alt="南京蘇州巴士2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">南京蘇州巴士2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘舒適巴士暢遊南京蘇州，遊覽中山陵、拙政園等名勝古跡。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/178/600/400" alt="青島煙臺巴士3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">青島煙臺巴士3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘舒適巴士暢遊青島煙臺，享受海濱風光，品嘗海鮮美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/179/600/400" alt="西安洛陽巴士3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">西安洛陽巴士3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘舒適巴士暢遊西安洛陽，參觀兵馬俑、龍門石窟等歷史名勝。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/180/600/400" alt="昆明大理巴士4日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">昆明大理巴士4日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘舒適巴士暢遊昆明大理，欣賞洱海風光，體驗少數民族文化。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,999</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 高鐵短線 -->
+            <div class="tab-content" id="high-speed-rail">
+                <h2 class="text-2xl font-bold text-primary mb-6">高鐵短線</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 項目1-8 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/181/600/400" alt="廣深高鐵2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">廣深高鐵2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘高速高鐵暢遊廣州深圳，享受便捷舒適的旅程，遊覽知名景點。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,299</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/182/600/400" alt="滬杭高鐵2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">滬杭高鐵2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘高速高鐵暢遊上海杭州，欣賞西湖美景，感受都市魅力。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,599</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/183/600/400" alt="京津高鐵2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">京津高鐵2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘高速高鐵暢遊北京天津，遊覽故宮、天塔等名勝古跡。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,799</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/184/600/400" alt="成渝高鐵2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">成渝高鐵2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘高速高鐵暢遊成都重慶，參觀大熊貓基地，品嘗川菜火鍋。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,199</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/185/600/400" alt="寧杭高鐵2日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">寧杭高鐵2日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘高速高鐵暢遊南京杭州，遊覽中山陵、西湖等名勝古跡。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 2,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/186/600/400" alt="鄭西高鐵3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">鄭西高鐵3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘高速高鐵暢遊鄭州西安，參觀兵馬俑、少林寺等歷史名勝。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,499</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/187/600/400" alt="武廣高鐵3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">武廣高鐵3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘高速高鐵暢遊武漢廣州，欣賞黃鶴樓，品嘗粵菜美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,699</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                        <img src="https://picsum.photos/id/188/600/400" alt="合福高鐵3日遊" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">合福高鐵3日遊</h3>
+                            <p class="text-gray-600 text-sm mb-3 line-clamp-2">乘高速高鐵暢遊合肥黃山武夷山，欣賞山水奇景，品嘗特色美食。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-secondary">HKD 3,899</span>
+                                <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- 關於我們 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">關於金途</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary transition-colors">公司簡介</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">服務承諾</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">顧客服務</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">加入我們</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">聯絡我們</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 旅遊服務 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">旅遊服務</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary transition-colors">中國短線</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">中國長線</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">東南亞</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">環球長線</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">郵輪假期</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">獨立包團</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 支援 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">支援</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary transition-colors">常見問題</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">付款方式</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">取消政策</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">旅遊保險</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">簽證資訊</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">旅遊須知</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 聯繫資訊 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">聯繫我們</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker mt-1 mr-3 text-secondary"></i>
+                            <span>九龍尖沙咀彌敦道83-97號華源大廈12樓全層</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-3 text-secondary"></i>
+                            <span>2137 3888</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-3 text-secondary"></i>
+                            <span>info@goldentours.com.hk</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">關注我們</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-white hover:text-secondary transition-colors">
+                                <i class="fa fa-facebook-square text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-secondary transition-colors">
+                                <i class="fa fa-instagram text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-secondary transition-colors">
+                                <i class="fa fa-weixin text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-white hover:text-secondary transition-colors">
+                                <i class="fa fa-youtube-play text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
+                <p>&copy; 2023 金途天下旅行社. 保留所有權利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回頂部按鈕 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 手機端菜單
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 手機端下拉菜單
+        document.querySelectorAll('.mobile-submenu-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('hidden');
+            });
+        });
+        
+        // 標籤切換
+        document.querySelectorAll('.tab-link').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 移除所有標籤的active類
+                document.querySelectorAll('.tab-link').forEach(t => {
+                    t.classList.remove('active', 'bg-primary', 'text-white');
+                    t.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                // 添加當前標籤的active類
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('bg-white', 'text-gray-700');
+                
+                // 隱藏所有內容
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                    content.classList.add('hidden');
+                });
+                
+                // 顯示當前內容
+                const tabId = this.getAttribute('data-tab');
+                const tabContent = document.getElementById(tabId);
+                tabContent.classList.add('active');
+                tabContent.classList.remove('hidden');
+            });
+        });
+        
+        // 返回頂部按鈕
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 風景區照片輪播
+        const carousel = document.getElementById('scenery-carousel');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        let currentIndex = 0;
+        const totalSlides = 5;
+        
+        // 设置第一个指示器为激活状态
+        indicators[0].classList.add('opacity-100');
+        indicators[0].classList.remove('opacity-50');
+        
+        // 自动轮播
+        function autoSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        // 更新轮播状态
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // 更新指示器状态
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('opacity-100');
+                    indicator.classList.remove('opacity-50');
+                } else {
+                    indicator.classList.add('opacity-50');
+                    indicator.classList.remove('opacity-100');
+                }
+            });
+        }
+        
+        // 点击指示器切换
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+        
+        // 启动自动轮播，每5秒切换一次
+        setInterval(autoSlide, 5000);
+    </script>
+</body>
+</html>

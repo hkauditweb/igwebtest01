@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金途天下旅行社 - 暢遊天下，金途相伴</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2E7D32', // 綠色主題
+                        secondary: '#FF9800', // 橙色輔色
+                        dark: '#1B5E20', // 深綠色
+                        light: '#A5D6A7', // 淺綠色
+                        accent: '#FF5722', // 深橙色
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.03);
+            }
+            .nav-shadow {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- 頂部聯繫信息 -->
+    <div class="bg-primary text-white py-2 px-4 md:px-8">
+        <div class="container mx-auto flex flex-wrap justify-between items-center text-sm">
+            <div class="flex items-center space-x-4 mb-2 md:mb-0">
+                <div class="flex items-center">特別提示！這是測試版網頁，當中展示的任何文字、數據、圖片、影片等均為設計效果，瀏覽者不應視為本公司業務展示資料。</div>
+            </div>
+            <div class="flex items-center">
+                <a href="http://www.i-goldentours.hk" class="flex items-center hover:text-secondary transition-colors">
+                    <i class="fa fa-globe mr-2"></i> www.i-goldentours.hk
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="bg-white nav-shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- 品牌標誌 -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                        <i class="fa fa-paper-plane-o mr-2"></i>
+                        <span>金途天下旅行社</span>
+                    </a>
+                </div>
+
+                <!-- 桌面端菜單 -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <!-- 首頁 -->
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">首頁</a>                    
+                    <!-- 中國短線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-1.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國短線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">本月熱賣</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">皇牌3天</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">養生溫泉</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">豪食自助</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">經典美食</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">靈山美景</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">五星酒店</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">奢華品牌</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">開心樂園</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節賞花</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">跨省巴士</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">高鐵短線</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 中國長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-2.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國飛機</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國高鐵/火車</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">深度遊</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節熱門</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">節日加班</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 東南亞 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-3.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            東南亞
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">台灣</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">越南</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">星馬</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">泰國</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">韓國</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">日本</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">汶萊</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">老撾</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 環球長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-5.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            環球長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">土耳其</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">俄羅斯</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">埃及</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">歐洲</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">美加</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">澳洲</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">杜拜</a>
+                                <a href="pd-it01.html" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 其他菜單 -->
+                    <a href="pd-6.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                    <a href="pd-8.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">獨立包團</a>
+                    <a href="GFO.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">成團概覽</a>
+                    <a href="info.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">常見資訊</a>
+                    <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">聯絡我們</a>
+                </div>
+
+                <!-- 手機端菜單按鈕 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機端菜單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">首頁</a>                
+                <!-- 中國短線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國短線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">本月熱賣</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">皇牌3天</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">養生溫泉</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">豪食自助</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">經典美食</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">靈山美景</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">五星酒店</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">奢華品牌</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">開心樂園</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節賞花</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">跨省巴士</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">高鐵短線</a>
+                    </div>
+                </div>
+                
+                <!-- 其他手機下拉菜單結構與主頁相同 -->
+                <!-- 中國長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國飛機</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國高鐵/火車</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">深度遊</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節熱門</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">節日加班</a>
+                    </div>
+                </div>
+                
+                <!-- 東南亞 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        東南亞
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">台灣</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">越南</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">星馬</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">泰國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">韓國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">日本</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">汶萊</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">老撾</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <!-- 環球長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        環球長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">土耳其</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">俄羅斯</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">埃及</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">歐洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">美加</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">澳洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">杜拜</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <a href="pd-6.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                <a href="pd-8.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">獨立包團</a>
+                <a href="GFO.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">成團概覽</a>
+                <a href="info.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">常見資訊</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主視覺跑馬燈 -->
+    <div id="carousel" class="relative overflow-hidden bg-gray-900">
+        <div class="carousel-container flex transition-transform duration-500 ease-in-out h-[300px] md:h-[380px]">
+            <!-- 圖片1 -->
+            <div class="carousel-slide min-w-full relative">
+                <img src="https://picsum.photos/id/29/1600/900" alt="中國風景 - 山水景色" class="w-full h-full object-cover opacity-80">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-shadow">黃山風光</h2>
+                        <p class="text-lg md:text-xl max-w-2xl mx-auto text-shadow">體驗中國著名山水景觀，感受大自然的鬼斧神工</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 圖片2 -->
+            <div class="carousel-slide min-w-full relative">
+                <img src="https://picsum.photos/id/28/1600/900" alt="中國風景 - 長城" class="w-full h-full object-cover opacity-80">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-shadow">萬里長城</h2>
+                        <p class="text-lg md:text-xl max-w-2xl mx-auto text-shadow">探索世界奇蹟，感受中國悠久歷史文化</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 圖片3 -->
+            <div class="carousel-slide min-w-full relative">
+                <img src="https://picsum.photos/id/42/1600/900" alt="中國風景 - 湖泊" class="w-full h-full object-cover opacity-80">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-shadow">麗江古城</h2>
+                        <p class="text-lg md:text-xl max-w-2xl mx-auto text-shadow">漫步古城小巷，體驗少數民族風情</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 圖片4 -->
+            <div class="carousel-slide min-w-full relative">
+                <img src="https://picsum.photos/id/43/1600/900" alt="中國風景 - 山水" class="w-full h-full object-cover opacity-80">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-shadow">桂林山水</h2>
+                        <p class="text-lg md:text-xl max-w-2xl mx-auto text-shadow">舟遊漓江，欣賞「山水甲天下」的絕美景致</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 圖片5 -->
+            <div class="carousel-slide min-w-full relative">
+                <img src="https://picsum.photos/id/65/1600/900" alt="中國風景 - 寺廟" class="w-full h-full object-cover opacity-80">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-shadow">敦煌莫高窟</h2>
+                        <p class="text-lg md:text-xl max-w-2xl mx-auto text-shadow">探索絲綢之路的文化寶庫，領略千年藝術瑰寶</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 跑馬燈控制按鈕 -->
+        <button id="prev-btn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+            <i class="fa fa-chevron-left"></i>
+        </button>
+        <button id="next-btn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+            <i class="fa fa-chevron-right"></i>
+        </button>
+        
+        <!-- 指示器 -->
+        <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-2">
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity active" data-index="0"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity" data-index="1"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity" data-index="2"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity" data-index="3"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity" data-index="4"></button>
+        </div>
+    </div>
+
+    <!-- 金途精選 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-primary">金途精選</h2>
+                <a href="pd-0.html" class="text-secondary hover:text-accent font-medium flex items-center">
+                    查看全部 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 產品1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/29/600/400" alt="黃山5日遊" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 left-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">熱賣</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">黃山5日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12345</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">欣賞黃山奇松怪石，體驗雲海壯觀景色，感受大自然的鬼斧神工。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 5,699</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/28/600/400" alt="北京文化探索之旅" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">皇牌</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">北京文化探索之旅</h3>
+                            <span class="text-gray-500 text-sm">XXX-12346</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">遊覽故宮、長城、頤和園等著名景點，領略古都風韻。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 6,299</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/42/600/400" alt="麗江古城風情遊" class="w-full h-48 object-cover">
+                        <div class="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-2 py-1 rounded">折扣</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">麗江古城風情遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12347</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">漫步麗江古城，體驗納西族文化，欣賞玉龍雪山美景。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 7,199</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品4 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/43/600/400" alt="桂林山水甲天下" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">桂林山水甲天下</h3>
+                            <span class="text-gray-500 text-sm">XXX-12348</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">暢遊漓江，欣賞兩岸山水美景，體驗「舟行碧波上，人在畫中游」。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 4,899</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 中國短線 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-primary">中國短線</h2>
+                <a href="GFO.html" class="text-secondary hover:text-accent font-medium flex items-center">
+                    查看全部 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- 子目錄標籤 -->
+            <div class="flex overflow-x-auto pb-4 mb-6 space-x-2 text-xs md:text-sm hide-scrollbar">
+                <a href="pd-1.html" class="whitespace-nowrap bg-primary text-white px-4 py-2 rounded-full">本月熱賣</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">皇牌3天</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">養生溫泉</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">豪食自助</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">經典美食</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">靈山美景</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">五星酒店</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">奢華品牌</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">開心樂園</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">季節賞花</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">跨省巴士</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">高鐵短線</a>
+            </div>
+            
+            <!-- 產品列表 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 產品1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/76/600/400" alt="張家界3日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">張家界3日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12349</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">探索張家界國家森林公園，欣賞獨特的石英砂岩峰林地貌。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 3,299</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/87/600/400" alt="杭州西湖2日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">杭州西湖2日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12350</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">遊覽西湖十景，品嘗杭州特色美食，體驗江南水鄉風情。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 1,899</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/96/600/400" alt="蘇州園林2日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">蘇州園林2日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12351</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">參觀拙政園、留園等世界文化遺產，感受中國園林藝術精髓。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 2,199</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/94/600/400" alt="溫泉療養2日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">溫泉療養2日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12352</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">享受天然溫泉浸泡，放鬆身心，體驗養生之旅。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 2,599</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 中國長線 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-primary">中國長線</h2>
+                <a href="#" class="text-secondary hover:text-accent font-medium flex items-center">
+                    查看全部 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- 子目錄標籤 -->
+            <div class="flex overflow-x-auto pb-4 mb-6 space-x-2 text-xs md:text-sm hide-scrollbar">
+                <a href="pd-1.html" class="whitespace-nowrap bg-primary text-white px-4 py-2 rounded-full">中國飛機</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">中國高鐵/火車</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">深度遊</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">季節熱門</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">節日加班</a>
+            </div>
+            
+            <!-- 產品列表 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 產品1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/65/600/400" alt="西北絲路8日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">西北絲路8日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12353</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">西安、蘭州、敦煌、嘉峪關，重走絲綢之路，探索千年文明。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 8,699</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/72/600/400" alt="西藏聖地10日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">西藏聖地10日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12354</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">拉薩、納木錯、林芝，感受高原聖地的神秘與莊嚴。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 12,999</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/85/600/400" alt="東北冰雪奇緣7日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">東北冰雪奇緣7日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12355</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">哈爾濱冰雕、亞布力滑雪、雪鄉體驗，感受北方冰雪魅力。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 7,999</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品4 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/91/600/400" alt="雲南風情9日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">雲南風情9日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12356</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">昆明、大理、麗江、香格里拉，體驗多彩民族風情。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 9,299</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 東南亞 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-primary">東南亞</h2>
+                <a href="#" class="text-secondary hover:text-accent font-medium flex items-center">
+                    查看全部 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- 子目錄標籤 -->
+            <div class="flex overflow-x-auto pb-4 mb-6 space-x-2 text-xs md:text-sm hide-scrollbar">
+                <a href="pd-1.html" class="whitespace-nowrap bg-primary text-white px-4 py-2 rounded-full">台灣</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">越南</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">星馬</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">泰國</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">韓國</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">日本</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">汶萊</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">老撾</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">郵輪假期</a>
+            </div>
+            
+            <!-- 產品列表 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 產品1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/1036/600/400" alt="台灣環島8日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">台灣環島8日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12357</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">台北、墾丁、花蓮、台南，暢遊台灣各地風光與美食。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 7,599</span>
+                            <a href="#" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/1039/600/400" alt="泰國曼谷芭堤雅6日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">泰國曼谷芭堤雅6日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12358</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">大皇宮、玉佛寺、東芭樂園，體驗泰國獨特文化與海灘風光。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 4,999</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/1056/600/400" alt="日本關東5日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">日本關東5日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12359</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">東京、橫濱、富士山，感受日本現代與傳統的完美融合。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 6,799</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/1043/600/400" alt="韓國首爾濟州5日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">韓國首爾濟州5日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12360</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">首爾市區觀光、濟州島風光，體驗韓國風情與美食。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 5,899</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 環球長線 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-primary">環球長線</h2>
+                <a href="pd-it01.html" class="text-secondary hover:text-accent font-medium flex items-center">
+                    查看全部 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- 子目錄標籤 -->
+            <div class="flex overflow-x-auto pb-4 mb-6 space-x-2 text-xs md:text-sm hide-scrollbar">
+                <a href="pd-1.html" class="whitespace-nowrap bg-primary text-white px-4 py-2 rounded-full">土耳其</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">俄羅斯</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">埃及</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">歐洲</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">美加</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">澳洲</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">杜拜</a>
+                <a href="pd-1.html" class="whitespace-nowrap bg-white text-gray-700 hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors">郵輪假期</a>
+            </div>
+            
+            <!-- 產品列表 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 產品1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/1061/600/400" alt="歐洲經典10國15日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">歐洲經典10國15日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12361</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">法國、德國、意大利等10國暢遊，領略歐洲風情與文化。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 23,999</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/1058/600/400" alt="美國東西岸12日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">美國東西岸12日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12362</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">紐約、華盛頓、洛杉磯、舊金山，暢遊美國主要城市。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 25,699</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/1059/600/400" alt="澳洲東海岸8日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">澳洲東海岸8日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12363</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">悉尼、布里斯班、黃金海岸，體驗澳洲陽光與海灘。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 18,999</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 產品4 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow hover-scale">
+                    <img src="https://picsum.photos/id/1067/600/400" alt="土耳其神秘9日遊" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">土耳其神秘9日遊</h3>
+                            <span class="text-gray-500 text-sm">XXX-12364</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">伊斯坦布爾、卡帕多奇亞，探索中亞古文明與獨特地貌。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">HKD 15,999</span>
+                            <a href="pd-it01.html" class="text-primary hover:text-dark text-sm font-medium">查看詳情</a>
+                        </div>
+                        <!-- 成團資訊 -->
+                        <div class="mt-3 flex flex-col space-y-2 text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-green-100 text-primary px-2 py-0.5 rounded">已成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="bg-orange-100 text-accent px-2 py-0.5 rounded">快成團</span>
+                                <div class="flex items-center">
+                                    <i class="fa fa-calendar-check-o mr-1 text-primary"></i>
+                                    <span>03-05 , 03-15 , 03-20 , 03-25 , 03-31</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯繫資訊 -->
+    <section class="py-12 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-paper-plane-o mr-2"></i> 金途天下旅行社
+                    </h3>
+                    <p class="mb-4">我們提供全球各地的旅遊服務，為您打造難忘的旅行體驗。無論是短線遊玩還是長途探索，我們都能滿足您的需求。</p>
+                    <div class="flex space-x-4">
+                        <a href="pd-1.html" class="text-white hover:text-secondary transition-colors"><i class="fa fa-facebook-square text-2xl"></i></a>
+                        <a href="pd-1.html" class="text-white hover:text-secondary transition-colors"><i class="fa fa-instagram text-2xl"></i></a>
+                        <a href="pd-1.html" class="text-white hover:text-secondary transition-colors"><i class="fa fa-weixin text-2xl"></i></a>
+                        <a href="pd-1.html" class="text-white hover:text-secondary transition-colors"><i class="fa fa-weibo text-2xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">聯絡我們</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>旺角 2426 6667</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>屯門 2777 7000</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>荃灣 2426 6666</span>
+                        </li>
+                         <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>大埔 2466 6888</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">快速鏈接</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="index.html" class="text-white hover:text-secondary transition-colors">首頁</a>
+                        <a href="GFO.html" class="text-white hover:text-secondary transition-colors">成團概覽</a>
+                        <a href="pd-1.html" class="text-white hover:text-secondary transition-colors">中國短線</a>
+                        <a href="pd-2.html" class="text-white hover:text-secondary transition-colors">中國長線</a>
+                        <a href="pd-3.html" class="text-white hover:text-secondary transition-colors">東南亞</a>
+                        <a href="pd-5.html" class="text-white hover:text-secondary transition-colors">環球長線</a>
+                        <a href="pd-6.html" class="text-white hover:text-secondary transition-colors">郵輪假期</a>
+                        <a href="pd-8.html" class="text-white hover:text-secondary transition-colors">獨立包團</a>
+                        <a href="info.html" class="text-white hover:text-secondary transition-colors">常見資訊</a>
+                        <a href="contact.html" class="text-white hover:text-secondary transition-colors">聯絡我們</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>版權所有 © 金途天下旅行社 2023. 保留所有權利。</p>
+        </div>
+    </footer>
+
+    <!-- 返回頂部按鈕 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary hover:bg-dark text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 invisible">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // 手機菜單切換
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 手機子菜單切換
+        document.querySelectorAll('.mobile-submenu-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('hidden');
+                
+                // 切換箭頭方向
+                const arrow = this.querySelector('i');
+                arrow.classList.toggle('fa-chevron-down');
+                arrow.classList.toggle('fa-chevron-up');
+            });
+        });
+        
+        // 跑馬燈功能
+        const carousel = document.getElementById('carousel');
+        const carouselContainer = document.querySelector('.carousel-container');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        
+        let currentIndex = 0;
+        const slideCount = slides.length;
+        
+        // 更新跑馬燈位置
+        function updateCarousel() {
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // 更新指示器狀態
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('opacity-100');
+                    indicator.classList.remove('opacity-50');
+                } else {
+                    indicator.classList.add('opacity-50');
+                    indicator.classList.remove('opacity-100');
+                }
+            });
+        }
+        
+        // 下一張
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateCarousel();
+        }
+        
+        // 上一張
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+            updateCarousel();
+        }
+        
+        // 點擊指示器切換圖片
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                currentIndex = parseInt(indicator.dataset.index);
+                updateCarousel();
+            });
+        });
+        
+        // 按鈕點擊事件
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        
+        // 自動播放
+        let autoplayInterval = setInterval(nextSlide, 5000);
+        
+        // 鼠標懸停時暫停自動播放
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+        
+        // 鼠標離開時恢復自動播放
+        carousel.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(nextSlide, 5000);
+        });
+        
+        // 返回頂部按鈕
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

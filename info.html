@@ -1,0 +1,1020 @@
+!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金途天下旅行社 - 暢遊天下，金途相伴</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2E7D32', // 綠色主題
+                        secondary: '#FF9800', // 橙色輔色
+                        dark: '#1B5E20', // 深綠色
+                        light: '#A5D6A7', // 淺綠色
+                        accent: '#FF5722', // 深橙色
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.03);
+            }
+            .nav-shadow {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- 頂部聯繫信息 -->
+    <div class="bg-primary text-white py-2 px-4 md:px-8">
+        <div class="container mx-auto flex flex-wrap justify-between items-center text-sm">
+            <div class="flex items-center space-x-4 mb-2 md:mb-0">
+                <div class="flex items-center">特別提示！這是測試版網頁，當中展示的任何文字、數據、圖片、影片等均為設計效果，瀏覽者不應視為本公司業務展示資料。</div>
+            </div>
+            <div class="flex items-center">
+                <a href="http://www.i-goldentours.hk" class="flex items-center hover:text-secondary transition-colors">
+                    <i class="fa fa-globe mr-2"></i> www.i-goldentours.hk
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="bg-white nav-shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- 品牌標誌 -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                        <i class="fa fa-paper-plane-o mr-2"></i>
+                        <span>金途天下旅行社</span>
+                    </a>
+                </div>
+
+                <!-- 桌面端菜單 -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <!-- 首頁 -->
+                    <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">首頁</a>                    
+                    <!-- 中國短線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-1.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國短線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">本月熱賣</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">皇牌3天</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">養生溫泉</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">豪食自助</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">經典美食</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">靈山美景</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">五星酒店</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">奢華品牌</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">開心樂園</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節賞花</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">跨省巴士</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">高鐵短線</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 中國長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-2.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            中國長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國飛機</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">中國高鐵/火車</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">深度遊</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">季節熱門</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">節日加班</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 東南亞 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-3.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            東南亞
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">台灣</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">越南</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">星馬</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">泰國</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">韓國</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">日本</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">汶萊</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">老撾</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 環球長線 下拉菜單 -->
+                    <div class="relative group">
+                        <a href="pd-5.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors flex items-center">
+                            環球長線
+                            <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+                            <div class="p-2 grid grid-cols-2 gap-1 text-xs">
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">土耳其</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">俄羅斯</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">埃及</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">歐洲</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">美加</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">澳洲</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">杜拜</a>
+                                <a href="#" class="px-3 py-2 rounded-md hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 其他菜單 -->
+                    <a href="pd-6.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">郵輪假期</a>
+                    <a href="pd-8.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">獨立包團</a>
+                    <a href="GFO.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">成團概覽</a>
+                    <a href="info.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">常見資訊</a>
+                    <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition-colors">聯絡我們</a>
+                </div>
+
+                <!-- 手機端菜單按鈕 -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機端菜單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">首頁</a>                
+                <!-- 中國短線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國短線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">本月熱賣</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">皇牌3天</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">養生溫泉</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">豪食自助</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">經典美食</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">靈山美景</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">五星酒店</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">奢華品牌</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">開心樂園</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節賞花</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">跨省巴士</a>
+                        <a href="pd-1.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">高鐵短線</a>
+                    </div>
+                </div>
+                
+                <!-- 其他手機下拉菜單結構與主頁相同 -->
+                <!-- 中國長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        中國長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國飛機</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">中國高鐵/火車</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">深度遊</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">季節熱門</a>
+                        <a href="pd-2.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">節日加班</a>
+                    </div>
+                </div>
+                
+                <!-- 東南亞 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        東南亞
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">台灣</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">越南</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">星馬</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">泰國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">韓國</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">日本</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">汶萊</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">老撾</a>
+                        <a href="pd-3.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <!-- 環球長線 手機下拉 -->
+                <div>
+                    <button class="mobile-submenu-button w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white flex justify-between items-center">
+                        環球長線
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1 border-l-2 border-primary">
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">土耳其</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">俄羅斯</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">埃及</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">歐洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">美加</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">澳洲</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">杜拜</a>
+                        <a href="pd-5.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                    </div>
+                </div>
+                
+                <a href="pd-6.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">郵輪假期</a>
+                <a href="pd-8.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">獨立包團</a>
+                <a href="GFO.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">成團概覽</a>
+                <a href="info.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">常見資訊</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-primary hover:text-white">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 頁面標題 -->
+    <div class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">常見資訊</h1>
+            <p class="text-lg opacity-90">為您解答旅遊中的疑問，提供實用信息</p>
+        </div>
+    </div>
+
+    <!-- 主要內容 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- 資訊標籤切換 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+                <div class="flex flex-wrap border-b">
+                    <button class="info-tab active px-6 py-4 font-medium text-primary border-b-2 border-primary" data-tab="faq">常見問題</button>
+                    <button class="info-tab px-6 py-4 font-medium text-gray-500 hover:text-primary" data-tab="travel-prep">出行準備</button>
+                    <button class="info-tab px-6 py-4 font-medium text-gray-500 hover:text-primary" data-tab="refund">退改政策</button>
+                    <button class="info-tab px-6 py-4 font-medium text-gray-500 hover:text-primary" data-tab="insurance">旅遊保險</button>
+                    <button class="info-tab px-6 py-4 font-medium text-gray-500 hover:text-primary" data-tab="visa">簽證資訊</button>
+                </div>
+                
+                <!-- 常見問題 -->
+                <div class="info-content active p-6" id="faq">
+                    <h2 class="text-2xl font-bold text-primary mb-6">旅遊常見問題</h2>
+                    
+                    <div class="space-y-4">
+                        <!-- FAQ項目1 -->
+                        <div class="border rounded-lg overflow-hidden">
+                            <button class="faq-question w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-medium">請問報名參加旅行團需要提供哪些文件？</span>
+                                <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-4 pb-4">
+                                <p class="text-gray-700">報名時需提供以下文件：</p>
+                                <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
+                                    <li>身份證明文件副本（身份證、護照等）</li>
+                                    <li>近期免冠照片（根據行程要求，通常為2-4張）</li>
+                                    <li>簽證所需材料（根據目的地國家要求）</li>
+                                    <li>特殊疾病或飲食習慣說明（如有）</li>
+                                    <li>未成年人需提供監護人同意書及相關證明</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ項目2 -->
+                        <div class="border rounded-lg overflow-hidden">
+                            <button class="faq-question w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-medium">旅行團費用包含哪些項目？</span>
+                                <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-4 pb-4">
+                                <p class="text-gray-700">一般來說，團費包含以下項目：</p>
+                                <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
+                                    <li>全程往返交通費用（根據行程包含飛機、高鐵、巴士等）</li>
+                                    <li>酒店住宿費用（通常為雙人房，單人需補單房差）</li>
+                                    <li>行程所列景點門票費用</li>
+                                    <li>團隊餐食（具體數量以行程表為準）</li>
+                                    <li>領隊及當地導遊服務費</li>
+                                    <li>旅行社責任險</li>
+                                </ul>
+                                <p class="text-gray-700 mt-2">費用不含：個人消費、自費項目、簽證費、小費、旅遊保險（可自願購買）等。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ項目3 -->
+                        <div class="border rounded-lg overflow-hidden">
+                            <button class="faq-question w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-medium">請問可以單獨報名嗎？是否需要補單房差？</span>
+                                <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-4 pb-4">
+                                <p class="text-gray-700">當然可以單獨報名。如果您是單人出行，我們會盡量安排與其他同性別團友拼房，以節省您的費用。如果最終無法拼房，則需要支付單人房差額，具體金額視酒店等級和行程而定，詳情可諮詢我們的客服人員。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ項目4 -->
+                        <div class="border rounded-lg overflow-hidden">
+                            <button class="faq-question w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-medium">旅行途中是否有自費項目？可以選擇不參加嗎？</span>
+                                <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-4 pb-4">
+                                <p class="text-gray-700">部分行程會包含一些自費項目，這些項目會在行程表中事先列明，供您參考和選擇。自費項目完全自願參加，您有權選擇不參加。不參加自費項目的團友，我們會安排在附近等候或自由活動（請注意安全，按約定時間集合）。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ項目5 -->
+                        <div class="border rounded-lg overflow-hidden">
+                            <button class="faq-question w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <span class="font-medium">請問出發前多久可以拿到行程詳細資料和機票？</span>
+                                <i class="fa fa-chevron-down text-primary transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-answer px-4 pb-4">
+                                <p class="text-gray-700">通常情況下：</p>
+                                <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
+                                    <li>國內團：出發前3-5天會發送電子版行程確認書</li>
+                                    <li>國際團：出發前7-10天會通知開說明會，並發放行程資料、機票等</li>
+                                    <li>機票一般在出發前3-5天發放（電子機票會發送至您的郵箱）</li>
+                                </ul>
+                                <p class="text-gray-700 mt-2">如有特殊情況，我們的工作人員會及時與您聯繫溝通。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <p class="text-gray-600 mb-4">如果您有其他問題，歡迎隨時聯繫我們的客服團隊</p>
+                        <a href="#" class="inline-flex items-center bg-primary hover:bg-dark text-white font-medium py-2 px-6 rounded-md transition-colors">
+                            聯繫客服 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 出行準備 -->
+                <div class="info-content hidden p-6" id="travel-prep">
+                    <h2 class="text-2xl font-bold text-primary mb-6">出行準備須知</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-primary flex items-center">
+                                <i class="fa fa-suitcase mr-2"></i> 行前準備清單
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>證件：護照、簽證、身份證、機票、行程單等重要文件，建議複印或拍照存檔</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>現金及信用卡：適量當地貨幣現金，國際通用信用卡</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>衣物：根據目的地氣候準備合適的衣物，舒適的鞋子</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>個人藥品：常用藥物、處方藥（需攜帶處方證明）</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>洗漱用品：環保考慮，建議自備牙刷、牙膏等</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>電子產品：手機、充電器、轉換插頭、相機等</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>其他：太陽鏡、防曬霜、雨具、常用聯繫電話等</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-primary flex items-center">
+                                <i class="fa fa-plane mr-2"></i> 機場注意事項
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex">
+                                    <i class="fa fa-info-circle text-secondary mt-1 mr-2"></i>
+                                    <span>國際航班建議提前3小時到達機場，國內航班提前2小時</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-info-circle text-secondary mt-1 mr-2"></i>
+                                    <span>攜帶液體容器容量不超過100ml，總量不超過1升，裝在透明密封袋內</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-info-circle text-secondary mt-1 mr-2"></i>
+                                    <span>禁止攜帶危險物品、管制刀具等違禁品</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-info-circle text-secondary mt-1 mr-2"></i>
+                                    <span>記好登機口信息，按時登機，注意廣播通知</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-info-circle text-secondary mt-1 mr-2"></i>
+                                    <span>托運行李中不要放置貴重物品和重要文件</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-primary flex items-center">
+                                <i class="fa fa-globe mr-2"></i> 國外旅遊注意事項
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex">
+                                    <i class="fa fa-exclamation-circle text-accent mt-1 mr-2"></i>
+                                    <span>了解當地風俗習慣和禁忌，尊重當地文化</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-exclamation-circle text-accent mt-1 mr-2"></i>
+                                    <span>保管好個人財物，避免前往治安較差的地區</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-exclamation-circle text-accent mt-1 mr-2"></i>
+                                    <span>記住當地緊急電話和中國大使館聯繫方式</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-exclamation-circle text-accent mt-1 mr-2"></i>
+                                    <span>遵守當地法律法規，不要隨意拍攝軍事設施等敏感地點</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-exclamation-circle text-accent mt-1 mr-2"></i>
+                                    <span>注意飲食衛生，避免生食或來路不明的食物</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-primary flex items-center">
+                                <i class="fa fa-users mr-2"></i> 跟團注意事項
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex">
+                                    <i class="fa fa-hand-o-right text-dark mt-1 mr-2"></i>
+                                    <span>按時集合，不要擅自脫隊，如有特殊情況需告知領隊</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-hand-o-right text-dark mt-1 mr-2"></i>
+                                    <span>記好領隊和當地導遊的聯繫電話</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-hand-o-right text-dark mt-1 mr-2"></i>
+                                    <span>酒店入住後記好酒店名稱、地址和電話</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-hand-o-right text-dark mt-1 mr-2"></i>
+                                    <span>尊重領隊和導遊的安排，團體行動以大局為重</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-hand-o-right text-dark mt-1 mr-2"></i>
+                                    <span>遇到問題及時與領隊溝通，共同解決</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 退改政策 -->
+                <div class="info-content hidden p-6" id="refund">
+                    <h2 class="text-2xl font-bold text-primary mb-6">退改政策說明</h2>
+                    
+                    <div class="bg-gray-50 p-5 rounded-lg mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-primary">退團費用扣除標準</h3>
+                        <p class="mb-4 text-gray-700">以下為一般情況下的退團費用扣除標準，特殊線路（如節假日、包機、郵輪等）可能有不同規定，具體以合同約定為準：</p>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white border border-gray-200">
+                                <thead>
+                                    <tr class="bg-primary text-white">
+                                        <th class="py-3 px-4 text-left border-b">取消通知時間</th>
+                                        <th class="py-3 px-4 text-left border-b">扣除費用比例</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 px-4 border-b">出發前30天以上（含30天）</td>
+                                        <td class="py-3 px-4 border-b">扣除團費總額的10%</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 px-4 border-b">出發前15-29天</td>
+                                        <td class="py-3 px-4 border-b">扣除團費總額的30%</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 px-4 border-b">出發前8-14天</td>
+                                        <td class="py-3 px-4 border-b">扣除團費總額的50%</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 px-4 border-b">出發前4-7天</td>
+                                        <td class="py-3 px-4 border-b">扣除團費總額的70%</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 px-4 border-b">出發前1-3天</td>
+                                        <td class="py-3 px-4 border-b">扣除團費總額的90%</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="py-3 px-4 border-b">出發當天取消或未如約出席</td>
+                                        <td class="py-3 px-4 border-b">扣除團費總額的100%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-primary flex items-center">
+                                <i class="fa fa-exchange mr-2"></i> 更改行程說明
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>出團前如需更改行程，需提前7個工作日通知我們</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>更改行程可能產生額外費用（如機票改簽費、酒店變更費等），需由客人承擔</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>出團後一般不接受更改行程，特殊情況需與領隊協商</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>更改參團人員需支付每人次HK$200的行政費用</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-primary flex items-center">
+                                <i class="fa fa-info-circle mr-2"></i> 其他說明
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>如因天氣、自然災害、戰爭等不可抗力因素導致無法出團，雙方協商解決，可選擇延期或全額退款</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>如因客人自身原因（如簽證被拒、健康問題等）無法出團，按上述退團標準處理</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>退款處理時間一般為收到書面申請後14個工作日內</span>
+                                </li>
+                                <li class="flex">
+                                    <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                                    <span>特殊線路（如聖誕、春節等旺季團隊）退改政策可能不同，詳見具體行程說明</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 旅遊保險 -->
+                <div class="info-content hidden p-6" id="insurance">
+                    <h2 class="text-2xl font-bold text-primary mb-6">旅遊保險資訊</h2>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-primary">為什麼需要購買旅遊保險？</h3>
+                        <p class="text-gray-700 mb-4">旅行過程中可能會遇到各種意外情況，如突發疾病、意外受傷、行李丟失、航班延誤等。購買旅遊保險可以為您的旅程提供保障，減少意外帶來的經濟損失和麻煩。</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <i class="fa fa-medkit text-3xl text-primary mb-3"></i>
+                                <h4 class="font-bold mb-2">醫療保障</h4>
+                                <p class="text-sm text-gray-600">涵蓋旅行期間的突發疾病和意外受傷的醫療費用</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <i class="fa fa-suitcase text-3xl text-primary mb-3"></i>
+                                <h4 class="font-bold mb-2">行李保障</h4>
+                                <p class="text-sm text-gray-600">保障行李丟失、損壞或延誤的損失</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <i class="fa fa-plane text-3xl text-primary mb-3"></i>
+                                <h4 class="font-bold mb-2">行程保障</h4>
+                                <p class="text-sm text-gray-600">涵蓋航班延誤、取消等造成的損失</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 text-primary">我們提供的保險計劃</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="border rounded-lg overflow-hidden">
+                                    <div class="bg-primary text-white p-3">
+                                        <h4 class="font-bold">經濟型計劃</h4>
+                                    </div>
+                                    <div class="p-4">
+                                        <p class="text-sm text-gray-600 mb-3">適合短期旅行，提供基本保障</p>
+                                        <ul class="space-y-2 text-sm">
+                                            <li class="flex justify-between">
+                                                <span>醫療保障額</span>
+                                                <span class="font-medium">HK$500,000</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>緊急醫療送返</span>
+                                                <span class="font-medium">HK$1,000,000</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>行李丟失保障</span>
+                                                <span class="font-medium">HK$5,000</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>每日保費（約）</span>
+                                                <span class="font-medium text-secondary">HK$15</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="border rounded-lg overflow-hidden">
+                                    <div class="bg-primary text-white p-3">
+                                        <h4 class="font-bold">全面型計劃</h4>
+                                    </div>
+                                    <div class="p-4">
+                                        <p class="text-sm text-gray-600 mb-3">適合中長期旅行，提供全面保障</p>
+                                        <ul class="space-y-2 text-sm">
+                                            <li class="flex justify-between">
+                                                <span>醫療保障額</span>
+                                                <span class="font-medium">HK$1,000,000</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>緊急醫療送返</span>
+                                                <span class="font-medium">HK$2,000,000</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>行李丟失保障</span>
+                                                <span class="font-medium">HK$10,000</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>每日保費（約）</span>
+                                                <span class="font-medium text-secondary">HK$25</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 text-primary">保險購買及理賠須知</h3>
+                            
+                            <div class="bg-gray-50 p-5 rounded-lg h-full">
+                                <h4 class="font-bold mb-3 text-dark">購買方式</h4>
+                                <ul class="space-y-2 mb-5">
+                                    <li class="flex">
+                                        <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                        <span>報名時一併購買，填入相關信息即可</span>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                        <span>需提供正確的身份證明文件信息</span>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                        <span>保險期限需涵蓋整個旅行期間，建議前後各加1天</span>
+                                    </li>
+                                </ul>
+                                
+                                <h4 class="font-bold mb-3 text-dark">理賠須知</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex">
+                                        <i class="fa fa-exclamation text-accent mt-1 mr-2"></i>
+                                        <span>發生保險事故時，應立即通知保險公司和領隊</span>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fa fa-exclamation text-accent mt-1 mr-2"></i>
+                                        <span>保留所有相關證明文件（醫療單據、警察報案紙等）</span>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fa fa-exclamation text-accent mt-1 mr-2"></i>
+                                        <span>回港後及時向保險公司提交理賠申請，一般需在30天內</span>
+                                    </li>
+                                    <li class="flex">
+                                        <i class="fa fa-exclamation text-accent mt-1 mr-2"></i>
+                                        <span>詳細理賠流程和所需文件請參閱保險單上的說明</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 簽證資訊 -->
+                <div class="info-content hidden p-6" id="visa">
+                    <h2 class="text-2xl font-bold text-primary mb-6">簽證資訊</h2>
+                    
+                    <div class="bg-gray-50 p-5 rounded-lg mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-primary">簽證辦理說明</h3>
+                        <p class="text-gray-700 mb-4">不同國家和地區的簽證要求各有不同，辦理時間也有所差異。以下是一些常見目的地的簽證信息，供您參考。具體要求可能會有變動，建議出發前向相關領事館確認最新信息。</p>
+                        
+                        <div class="flex flex-wrap gap-3 mt-4">
+                            <span class="bg-primary text-white text-sm px-3 py-1 rounded-full">提前規劃</span>
+                            <span class="bg-secondary text-white text-sm px-3 py-1 rounded-full">準備齊全</span>
+                            <span class="bg-accent text-white text-sm px-3 py-1 rounded-full">如實申報</span>
+                            <span class="bg-dark text-white text-sm px-3 py-1 rounded-full">按時辦理</span>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200">
+                            <thead>
+                                <tr class="bg-primary text-white">
+                                    <th class="py-3 px-4 text-left border-b">目的地</th>
+                                    <th class="py-3 px-4 text-left border-b">簽證要求</th>
+                                    <th class="py-3 px-4 text-left border-b">辦理時間</th>
+                                    <th class="py-3 px-4 text-left border-b">備註</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 border-b font-medium">中國內地</td>
+                                    <td class="py-3 px-4 border-b">需辦理港澳居民來往內地通行證</td>
+                                    <td class="py-3 px-4 border-b">7-10個工作日</td>
+                                    <td class="py-3 px-4 border-b">無需簽證，通行證有效期內使用</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 border-b font-medium">台灣</td>
+                                    <td class="py-3 px-4 border-b">需辦理入台證</td>
+                                    <td class="py-3 px-4 border-b">10-15個工作日</td>
+                                    <td class="py-3 px-4 border-b">需通過旅行社辦理，提供相關證明</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 border-b font-medium">泰國</td>
+                                    <td class="py-3 px-4 border-b">旅遊簽證或落地簽</td>
+                                    <td class="py-3 px-4 border-b">3-5個工作日</td>
+                                    <td class="py-3 px-4 border-b">落地簽可停留15天，需準備現金等材料</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 border-b font-medium">日本</td>
+                                    <td class="py-3 px-4 border-b">旅遊簽證</td>
+                                    <td class="py-3 px-4 border-b">5-7個工作日</td>
+                                    <td class="py-3 px-4 border-b">需通過指定旅行社代辦，提供資產證明</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 border-b font-medium">韓國</td>
+                                    <td class="py-3 px-4 border-b">旅遊簽證</td>
+                                    <td class="py-3 px-4 border-b">5-7個工作日</td>
+                                    <td class="py-3 px-4 border-b">濟州島可免簽停留30天</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 border-b font-medium">歐洲申根國</td>
+                                    <td class="py-3 px-4 border-b">申根簽證</td>
+                                    <td class="py-3 px-4 border-b">10-15個工作日</td>
+                                    <td class="py-3 px-4 border-b">需採集指紋，提前預約，提供行程計劃</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 border-b font-medium">美國</td>
+                                    <td class="py-3 px-4 border-b">B1/B2旅遊商務簽證</td>
+                                    <td class="py-3 px-4 border-b">約3周（含面試預約）</td>
+                                    <td class="py-3 px-4 border-b">需面試，有效期10年，EVUS登記</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-4 border-b font-medium">澳洲</td>
+                                    <td class="py-3 px-4 border-b">旅遊簽證</td>
+                                    <td class="py-3 px-4 border-b">10-15個工作日</td>
+                                    <td class="py-3 px-4 border-b">電子簽證，需在線申請</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-8 bg-white p-5 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-4 text-primary">旅行社簽證服務</h3>
+                        <p class="text-gray-700 mb-4">我們提供各國簽證代辦服務，幫助您節省時間和精力，順利辦理所需簽證。</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="border border-gray-200 p-4 rounded-lg text-center">
+                                <i class="fa fa-check-circle text-primary text-2xl mb-3"></i>
+                                <h4 class="font-bold mb-2">材料指導</h4>
+                                <p class="text-sm text-gray-600">提供詳細的材料清單和準備指南</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg text-center">
+                                <i class="fa fa-pencil text-primary text-2xl mb-3"></i>
+                                <h4 class="font-bold mb-2">表格填寫</h4>
+                                <p class="text-sm text-gray-600">協助填寫申請表格，確保信息正確</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg text-center">
+                                <i class="fa fa-paper-plane text-primary text-2xl mb-3"></i>
+                                <h4 class="font-bold mb-2">代遞服務</h4>
+                                <p class="text-sm text-gray-600">負責遞交申請和領取簽證，省心省力</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 text-center">
+                            <a href="#" class="inline-flex items-center bg-secondary hover:bg-accent text-white font-medium py-2 px-6 rounded-md transition-colors">
+                                查詢簽證服務 <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯繫資訊 -->
+    <section class="py-12 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-paper-plane-o mr-2"></i> 金途天下旅行社
+                    </h3>
+                    <p class="mb-4">我們提供全球各地的旅遊服務，為您打造難忘的旅行體驗。無論是短線遊玩還是長途探索，我們都能滿足您的需求。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-facebook-square text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-weixin text-2xl"></i></a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors"><i class="fa fa-weibo text-2xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">聯絡我們</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>旺角 2426 6667</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>屯門 2777 7000</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>荃灣 2426 6666</span>
+                        </li>
+                         <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3"></i>
+                            <span>大埔 2466 6888</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">快速鏈接</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="#" class="text-white hover:text-secondary transition-colors">首頁</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">成團概覽</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">中國短線</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">中國長線</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">東南亞</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">環球長線</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">郵輪假期</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">獨立包團</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">常見資訊</a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors">聯絡我們</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>版權所有 &copy; 金途天下旅行社 2023. 保留所有權利。</p>
+        </div>
+    </footer>
+
+    <!-- 返回頂部按鈕 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary hover:bg-dark text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all opacity-0 invisible">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // 手機菜單切換
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 手機子菜單切換
+        document.querySelectorAll('.mobile-submenu-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('hidden');
+                
+                // 切換箭頭方向
+                const arrow = this.querySelector('i');
+                arrow.classList.toggle('fa-chevron-down');
+                arrow.classList.toggle('fa-chevron-up');
+            });
+        });
+        
+        // 資訊標籤切換
+        const infoTabs = document.querySelectorAll('.info-tab');
+        const infoContents = document.querySelectorAll('.info-content');
+        
+        infoTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.dataset.tab;
+                
+                // 更新標籤狀態
+                infoTabs.forEach(t => {
+                    t.classList.remove('active', 'text-primary', 'border-primary', 'border-b-2');
+                    t.classList.add('text-gray-500');
+                });
+                tab.classList.add('active', 'text-primary', 'border-b-2', 'border-primary');
+                tab.classList.remove('text-gray-500');
+                
+                // 更新內容顯示
+                infoContents.forEach(content => {
+                    content.classList.add('hidden');
+                    content.classList.remove('active');
+                });
+                document.getElementById(tabId).classList.remove('hidden');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // FAQ 展開/收起功能
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const arrow = question.querySelector('i');
+                
+                // 切換答案顯示狀態
+                answer.classList.toggle('active');
+                
+                // 旋轉箭頭
+                if (answer.classList.contains('active')) {
+                    arrow.style.transform = 'rotate(180deg)';
+                } else {
+                    arrow.style.transform = 'rotate(0)';
+                }
+            });
+        });
+        
+        // 返回頂部按鈕
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
